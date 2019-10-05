@@ -49,7 +49,7 @@ foreach ($result as $row) {
     </div>
     <div class="col-md-1 centered hidden-sm hidden-xs">
     <button type="button" class="btn btn-secondary" id="remove" onClick="remove('.$row["event_id"].')" >Remove</button>
-    <button type="button" class="btn btn-secondary" id="edit" onClick="edit('.$row["event_id"].',\''.$row["title"].'\',\''.$row["funded_by"].'\',\''.$row["Description"].'\',\''.$row["color"].'\')" >Edit</button>
+    <a href="insertparticipents.php?event_id='.$row["event_id"].'" class="btn btn-secondary" id="edit" >Edit</a>
     </div>
   </div>
 </div>';

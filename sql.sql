@@ -16,8 +16,9 @@ create table participents(
     instructor_id int,
     event_id int,
 	present int,
+    PRIMARY KEY (instructor_id,event_id),
     FOREIGN key ( instructor_id ) references instructor (instructor_id)
 		on delete cascade,
-     FOREIGN key ( event_id ) references event (event_id)
+    FOREIGN key ( event_id ) references events (event_id)
 		on delete cascade
 );

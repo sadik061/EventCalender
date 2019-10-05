@@ -78,7 +78,9 @@ foreach ($result as $row) {
     $resultt = $statementt->fetchAll();
     foreach ($resultt as $roww) {
         echo  '<div  style="border: 1px solid #dfd4d4;background-color: pink;border-radius: 8px;padding: 0px 0px;padding-left: 10px;">
-            name:'.$roww["name"].' <button type="button" style="float:right;font-size: small;padding: 0px 0px;" class="btn btn-secondary" onClick="assign('.$roww["instructor_id"].')" >Assign</button>
+            name:'.$roww["name"].'
+            <button type="button" style="float:right;font-size: small;padding: 0px 0px;" class="btn btn-secondary" onClick="showCalender('.$roww["instructor_id"].')" >Calender</button> 
+            <button type="button" style="float:right;font-size: small;padding: 0px 0px;" class="btn btn-secondary" onClick="assign('.$roww["instructor_id"].')" >Assign</button>
         </div>';
         
         }
@@ -87,7 +89,9 @@ foreach ($result as $row) {
     $resulttt = $statementtt->fetchAll();  
         foreach ($resulttt as $rowww) {
             echo  '<div  style="border: 1px solid #dfd4d4;background-color: #5aa25a;color:white;border-radius: 8px;padding: 0px 0px;padding-left: 10px;" >
-            name:'.$rowww["name"].' <button type="button" style="float:right;font-size: small;padding: 0px 0px;" class="btn btn-secondary" onClick="assign('.$rowww["instructor_id"].')" >Assign</button>
+            name:'.$rowww["name"].' 
+            <button type="button" style="float:right;font-size: small;padding: 0px 0px;" class="btn btn-secondary" onClick="showCalender('.$rowww["instructor_id"].')" >Calender</button>
+            <button type="button" style="float:right;font-size: small;padding: 0px 0px;" class="btn btn-secondary" onClick="assign('.$rowww["instructor_id"].')" >Assign</button>
         </div>';
         }
       
