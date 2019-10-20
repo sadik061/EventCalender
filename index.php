@@ -7,7 +7,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="ModalTile">Modal title</h5>
+            <h5 class="modal-title" id="ModalTile">Event</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -31,6 +31,14 @@
                 <input type="text" class="form-control" id="end">
               </div>
               <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Color:</label>
+                <select class="form-control" id="clr">
+                  <option value="orange" style="color: orange">Orange</option>
+                  <option value="#007bff80" style="color: #007bff80">Blue</option>
+                  <option value="#dc3545b5" style="color: #dc3545b5">Red</option>
+                </select>
+              </div>
+              <div class="form-group">
                 <label for="recipient-name" class="col-form-label">Description:</label>
                 <input type="text" class="form-control" id="Des">
               </div>
@@ -46,7 +54,7 @@
         </div>
       </div>
     </div>
-    <div class="pn">
+    <div class="pn" style="display:none;">
 
       <!-- /weather-2 header -->
       <div class="row ">
@@ -73,7 +81,7 @@
       </div>
     </div>
     </div>
-    
+
     <div id='calendar'>
 
     </div>

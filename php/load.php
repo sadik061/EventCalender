@@ -25,7 +25,7 @@ foreach($result as $row)
   'end'   => $row["end_event"],
   'className' => 'important',
   'allDay' => false,
-  'backgroundColor' => 'orange'
+  'backgroundColor' => $row["color"]
  );
 }
 

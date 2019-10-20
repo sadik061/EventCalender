@@ -34,19 +34,23 @@ foreach ($result as $row) {
   <div class="message-header">
   </div>
   <div class="row">
-    <div class="col-md-2 centered hidden-sm hidden-xs">
-      <img src="img/institute.png" class="img-circle" width="65">
-    </div>
-    <div class="col-md-9">
+    
+    <div class="col-md-5">
       <p>
-        name:' . $row["name"] . '
+        Name: <b>' . $row["name"] . '</b>
       </p>
-      <p>Contact:' . $row["contact"] . '</p>
-      <p>Designation:' . $row["Designation"] . '</p>
+      <p>Designation: ' . $row["Designation"] . '</p>
+      <p>Contact: ' . $row["contact"] . '</p>
+      
     </div>
-    <div class="col-md-1 centered hidden-sm hidden-xs">
-    <button type="button" class="btn btn-secondary" id="remove" onClick="remove(' . $row["instructor_id"] . ')" >Remove</button>
-    <button type="button" class="btn btn-secondary" id="edit" onClick="edit(' . $row["instructor_id"] . ',\'' . $row["name"] . '\',\'' . $row["Designation"] . '\',\'' . $row["contact"] . '\',' . $row["institute_id"] . ',\''.$row["namee"].'\')" >Edit</button>
+    <div class="col-md-5">
+      <p>
+        Institute name: ' . $row["namee"] . '
+      </p>
+      </div>
+    <div class="col-md-2 centered hidden-sm hidden-xs">
+    <button class="btn btn-xs" id="edit" onClick="edit(' . $row["instructor_id"] . ',\'' . $row["name"] . '\',\'' . $row["Designation"] . '\',\'' . $row["contact"] . '\',' . $row["institute_id"] . ',\''.$row["namee"].'\')" ><i class="fa fa-pencil "></i></button>
+    <button class="btn btn-xs" id="remove" onClick="remove(' . $row["instructor_id"] . ')" ><i class="fa fa-trash-o"></i></button>
     </div>
   </div>
 </div>';

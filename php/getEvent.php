@@ -37,22 +37,22 @@ foreach ($result as $row) {
   <div class="message-header">
   </div>
   <div class="row">
-    <div class="col-md-2 centered hidden-sm hidden-xs">
-      <img src="img/institute.png" class="img-circle" width="65">
+    <div class="col-md-4 hidden-sm hidden-xs">
+      <h5 style="color: '.$row["color"].';padding-left: 2%;">'.$row["title"].'
+      </h5>
+     
     </div>
-    <div class="col-md-9">
-      <p>
-        name:'.$row["title"].'
-      </p>
-      <p>Area:'.$row["funded_by"].'</p>
-      <p class="message">Address:'.$row["Description"].'</p>
+    <div class="col-md-7">
+      
+      <p>Funded By: '.$row["funded_by"].'</p>
+      <p class="message">Description: '.$row["Description"].'</p>
     </div>
-    <div class="col-md-1 centered hidden-sm hidden-xs">
-    <button type="button" class="btn btn-secondary" id="remove" onClick="remove('.$row["event_id"].')" >Remove</button>
-    <a href="insertparticipents.php?event_id='.$row["event_id"].'" class="btn btn-secondary" id="edit" >Edit</a>
+    <div class=" pull-right hidden-sm hidden-xs">
+    <a class="btn btn-xs" href="insertparticipents.php?event_id='.$row["event_id"].'" id="edit"  ><i class="fa fa-pencil "></i></a>
+    <button class="btn btn-xs" id="remove" onClick="remove('.$row["event_id"].')"><i class="fa fa-trash-o"></i></button>
     </div>
   </div>
-</div>';
+</div>'; 
 }
 echo '<div class="row-fluid">
 <div class="span6">

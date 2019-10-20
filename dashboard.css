@@ -180,3 +180,21 @@ body::-webkit-scrollbar {
   background: #999;
   color: white ! important;
 }
+.btn-xs{
+  border: 1px solid gray;
+}
+.message-p .message-header {
+  background: white;
+  padding: 1px;
+}
+body {
+  font-family: sans-serif;
+  font-size: 0.96rem;
+}
+#sidebar{
+  background: #ffffff;
+  border-right: 1px solid lightgray;
+}
+ul.sidebar-menu li a {
+  color: #495057;
+}

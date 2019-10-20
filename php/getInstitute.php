@@ -37,19 +37,18 @@ foreach ($result as $row) {
   <div class="message-header">
   </div>
   <div class="row">
-    <div class="col-md-2 centered hidden-sm hidden-xs">
-      <img src="img/institute.png" class="img-circle" width="65">
-    </div>
-    <div class="col-md-9">
+    <div class="col-md-5">
       <p>
-        name:'.$row["namee"].'
+        Name: '.$row["namee"].'
       </p>
-      <p>Area:'.$row["area"].'</p>
-      <p class="message">Address:'.$row["address"].'</p>
+      <p>Area: '.$row["area"].'</p>
     </div>
-    <div class="col-md-1 centered hidden-sm hidden-xs">
-    <button type="button" class="btn btn-secondary" id="remove" onClick="remove('.$row["institute_id"].')" >Remove</button>
-    <button type="button" class="btn btn-secondary" id="edit" onClick="edit('.$row["institute_id"].',\''.$row["namee"].'\',\''.$row["area"].'\',\''.$row["contact"].'\',\''.$row["address"].'\')" >Edit</button>
+    <div class="col-md-5">
+      <p >Address: '.$row["address"].'</p>
+    </div>
+    <div class="col-md-2 centered hidden-sm hidden-xs">
+    <button class="btn btn-xs" id="edit" onClick="edit('.$row["institute_id"].',\''.$row["namee"].'\',\''.$row["area"].'\',\''.$row["contact"].'\',\''.$row["address"].'\')" ><i class="fa fa-pencil "></i></button>
+    <button class="btn btn-xs" id="remove" onClick="remove('.$row["institute_id"].')" ><i class="fa fa-trash-o"></i></button>
     </div>
   </div>
 </div>';

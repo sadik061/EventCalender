@@ -272,7 +272,7 @@
 
   function remove(id) {
     $.ajax({
-      url: "php/deleteinstructor.php",
+      url: "php/delete.php",
       type: "POST",
       data: {
         id: id

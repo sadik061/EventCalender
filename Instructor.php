@@ -8,7 +8,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Add new institute</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Add new instructor</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -68,7 +68,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Add new institute</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Instructor</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -129,18 +129,15 @@
    
 
     <form class="form-inline" role="form" _lpchecked="1">
-      <div class="col-lg-6">
-        <label class="sr-only" for="exampleInputEmail2">Institute Name</label>
-        <input type="text" class="form-control " placeholder="Type Institute name to search" id="sname" oninput="myFunction()" autocomplete="off">
+      <div class="col-lg-10">
+        <label class="sr-only" for="exampleInputEmail2">Instructor Name</label>
+        <input type="text" class="form-control " placeholder="Type Instructor name to search" id="sname" oninput="myFunction()" autocomplete="off">
 
       </div>
-      <div class="col-lg-3">
-        <label class="sr-only" for="exampleInputEmail2">Area</label>
-        <input type="text" class="form-control " placeholder="" id="sarea" autocomplete="off">
-      </div>
-      <div class="col-lg-3">
+      
+      <div class="col-lg-2">
         <button type="button" class="btn btn-theme" data-toggle="modal" data-target="#exampleModal">
-          Add new institution
+          Add new instructor
         </button>
       </div>
 

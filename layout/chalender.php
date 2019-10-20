@@ -36,6 +36,7 @@
           var title = $("#title").val();
           var fund = $("#fund").val();
           var Description = $("#Des").val();
+          var color = $("#clr").val();
           $.ajax({
             url: "php/insert.php",
             type: "POST",
@@ -44,7 +45,8 @@
               fund: fund,
               start: start,
               end: end,
-              Description: Description
+              Description: Description,
+              color: color
             },
             success: function(data) {
               $("#title").val("");
@@ -52,6 +54,7 @@
               $("#Des").val("");
               $("#start").val("");
               $("#end").val("");
+              $("#clr").val("");
               calendar.refetchEvents();
               window.location.href = 'insertparticipents.php?event_id=' + data;
 
@@ -98,10 +101,10 @@
         });
       },
 
-
+      
       eventClick: function(info) {
         $("#Modal").modal();
-        $("#ModalTile").html(info.event.title);
+        $("#Title").html(info.event.title);
         $("#start").attr("placeholder", info.event.start);
         $("#remove").unbind("click").click(function() {
           var id = info.event.id;
