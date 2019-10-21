@@ -30,7 +30,7 @@
 // Pear Mail Library
 require_once "Mail-1.4.1/Mail.php";
 
-$from = '<ursooonice@gmail.com>';
+$from = '<sanik141149@bscse.uiu.ac.bd>';
 $to = '<saif.ahmed.anik.0@gmail.com>';
 $subject = 'Hi!';
 $body = "Hi,\n\nHow are you?";
