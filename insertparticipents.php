@@ -26,7 +26,41 @@
     </div>
 
 
-    
+    <div class="col-lg-12">
+            <div class="row">
+              <div class="col-md-4 profile-text mt mb">
+                <div class="right-divider hidden-sm hidden-xs">
+                <h3 id="event_name">Event Name</h3>
+                <h6>Organized by</h6>
+                <p>Description</p>
+                  
+                </div>
+              </div>
+              <!-- /col-md-4 -->
+              <div class="col-md-4 profile-text right-divider">
+                
+              <p id="event_name">Funded by:</p>
+              <p>Organized by:</p>
+                
+              </div>
+              <!-- /col-md-4 -->
+              <div class="col-md-4 ">
+                <div class="profile-pic">
+                  
+                  <h4 id="event_name">1922</h4>
+                  <h6>Participents</h6>
+                  <p>Staring date: 12-10-2019</p>
+                  <p>Staring date: 12-10-2019</p>
+                  <p>
+                    <button class="btn btn-theme"><i class="fa fa-check"></i> Follow</button>
+                    <button class="btn btn-theme02">Add</button>
+                  </p>
+                </div>
+              </div>
+              <!-- /col-md-4 -->
+            </div>
+            <!-- /row -->
+          </div>
 
     <form class="form-inline" role="form" _lpchecked="1">
       <div class="col-lg-6">
@@ -183,8 +217,9 @@
           present: '1'
         },
         success: function() {
+          
             alert("Successfully added");
-            showParticipents(event_id);
+            
         }
       })
   }
