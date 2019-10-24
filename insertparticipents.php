@@ -217,14 +217,12 @@
           present: '1'
         },
         success: function() {
-          
             alert("Successfully added");
-            
+            showParticipents(event_id);  
         }
       })
   }
 
-  var count =0;
   function showCalender(number){
     $('#mcalendar').html('');
     var calendarEl = document.getElementById('mcalendar');
@@ -253,6 +251,7 @@
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
+        $('#participents').html('');
         document.getElementById("participents").innerHTML = this.responseText;
       }
     };

@@ -22,7 +22,14 @@
       selectable: true,
       selectHelper: true,
 
-      events: 'php/load.php',
+      events: {
+        url: 'php/load.php',
+        extraParams: function() {
+          return {
+            cachebuster: new Date().valueOf()
+          };
+        }
+      },
 
 
       select: function(arg) {
@@ -101,7 +108,7 @@
         });
       },
 
-      
+
       eventClick: function(info) {
         $("#Modal").modal();
         $("#Title").html(info.event.title);
