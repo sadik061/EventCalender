@@ -323,7 +323,7 @@
         document.getElementById("listt").innerHTML = this.responseText;
       }
     };
-    xmlhttp.open("GET", "php/getEvent.php?page=" + page + "&search=" + search, true);
+    xmlhttp.open("GET", "php/getEvent.php?page=" + page + "&search=" + search+"&time=" + new Date().getTime(), true);
     xmlhttp.send();
   }
 </script>

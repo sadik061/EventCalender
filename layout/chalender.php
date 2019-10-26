@@ -21,6 +21,7 @@
       eventLimit: true, // allow "more" link when too many events
       selectable: true,
       selectHelper: true,
+      allday: false,
 
       events: {
         url: 'php/load.php',
@@ -35,8 +36,19 @@
       select: function(arg) {
         var start = arg.start.toISOString();
         var end = arg.end.toISOString();
-        $("#start").attr("placeholder", start);
-        $("#end").attr("placeholder", end);
+        if (arg.start.getMonth() < 9) {
+          var month = "0" + (arg.start.getMonth() + 1);
+        } else {
+          month = (arg.start.getMonth() + 1);
+        }
+        if (arg.start.getDate() < 10) {
+          var dayy = "0" + arg.start.getDate();
+        } else {
+          dayy = arg.start.getDate();
+        }
+        var sstart = arg.start.getFullYear() + "-" + month + "-" + dayy;
+        $('#start').val(sstart);
+        $('#end').val(sstart);
         $("#Modal").modal();
         // save button bind a click event every time so unbind it also everytime
         $("#save").unbind("click").click(function() {
@@ -44,6 +56,10 @@
           var fund = $("#fund").val();
           var Description = $("#Des").val();
           var color = $("#clr").val();
+          var start = $("#start").val();
+          var end = $("#end").val();
+          var organize = $("#organize").val();
+          var venu = $("#venu").val();
           $.ajax({
             url: "php/insert.php",
             type: "POST",
@@ -53,7 +69,9 @@
               start: start,
               end: end,
               Description: Description,
-              color: color
+              color: color,
+              organize: organize,
+              venu: venu
             },
             success: function(data) {
               $("#title").val("");
@@ -62,9 +80,10 @@
               $("#start").val("");
               $("#end").val("");
               $("#clr").val("");
+              $("#organize").val("");
+              $("#venu").val("");
               calendar.refetchEvents();
               window.location.href = 'insertparticipents.php?event_id=' + data;
-
             }
           })
 
@@ -110,11 +129,17 @@
 
 
       eventClick: function(info) {
-        $("#Modal").modal();
-        $("#Title").html(info.event.title);
-        $("#start").attr("placeholder", info.event.start);
-        $("#remove").unbind("click").click(function() {
-          var id = info.event.id;
+        var id = info.event.id;
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("preview").innerHTML = this.responseText;
+          }
+        };
+        xmlhttp.open("GET", "php/getpreview.php?event=" + id + "&time=" + new Date().getTime(), true);
+        xmlhttp.send();
+        $("#previeww").modal();
+        $("#premove").unbind("click").click(function() {
           $.ajax({
             url: "php/delete.php",
             type: "POST",
@@ -144,27 +169,6 @@
   });
 </script>
 
-
-<script type="text/javascript">
-  $(document).ready(function() {
-    var unique_id = $.gritter.add({
-      // (string | mandatory) the heading of the notification
-      title: 'Welcome to Dashio!',
-      // (string | mandatory) the text inside the notification
-      text: 'Hover me to enable the Close Button. You can hide the left sidebar clicking on the button next to the logo.',
-      // (string | optional) the image to display on the left
-      image: 'img/ui-sam.jpg',
-      // (bool | optional) if you want it to fade out on its own or just sit there
-      sticky: false,
-      // (int | optional) the time you want it to be alive for before fading out
-      time: 8000,
-      // (string | optional) the class name you want to apply to that specific message
-      class_name: 'my-sticky-class'
-    });
-
-    return false;
-  });
-</script>
 <script type="application/javascript">
   $(document).ready(function() {
     $("#date-popover").popover({

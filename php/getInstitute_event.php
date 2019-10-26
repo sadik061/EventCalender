@@ -77,23 +77,35 @@ foreach ($result as $row) {
     $statementt->execute();
     $resultt = $statementt->fetchAll();
     foreach ($resultt as $roww) {
+        $queryy_ins = "SELECT count(*) as coun FROM participents where instructor_id=" .$roww["instructor_id"];
+        $statementt_ins = $connect->prepare($queryy_ins);
+        $statementt_ins->execute();
+        $resultt_ins = $statementt_ins->fetchAll();
+        foreach ($resultt_ins as $roww_ins) {
         echo  '<div  style="border: 1px solid #dfd4d4;background-color: pink;border-radius: 8px;padding: 0px 0px;padding-left: 10px;">
             name:'.$roww["name"].'
             <button type="button" style="float:right;font-size: small;padding: 0px 0px;" class="btn btn-secondary" onClick="showCalender('.$roww["instructor_id"].')" >Calender</button> 
-            <button type="button" style="float:right;font-size: small;padding: 0px 0px;" class="btn btn-secondary" onClick="assign('.$roww["instructor_id"].')" >Assign</button>
+            <button type="button" style="float:right;font-size: small;padding: 0px 0px;" class="btn btn-secondary" onClick="assign('.$roww["instructor_id"].')" >'.$roww_ins["coun"].'</button>
         </div>';
-        
+        }
         }
     echo '</div><div class="col-md-5"><p style="color: #5aa25a">Nurse</p>';
     $statementtt->execute();
     $resulttt = $statementtt->fetchAll();  
         foreach ($resulttt as $rowww) {
+          $queryy_ins = "SELECT count(*) as coun FROM participents where instructor_id=" .$rowww["instructor_id"];
+        $statementt_ins = $connect->prepare($queryy_ins);
+        $statementt_ins->execute();
+        $resultt_ins = $statementt_ins->fetchAll();
+        foreach ($resultt_ins as $roww_ins) {
+          
             echo  '<div  style="border: 1px solid #dfd4d4;background-color: #5aa25a;color:white;border-radius: 8px;padding: 0px 0px;padding-left: 10px;" >
             name:'.$rowww["name"].' 
             <button type="button" style="float:right;font-size: small;padding: 0px 0px;" class="btn btn-secondary" onClick="showCalender('.$rowww["instructor_id"].')" >Calender</button>
-            <button type="button" style="float:right;font-size: small;padding: 0px 0px;" class="btn btn-secondary" onClick="assign('.$rowww["instructor_id"].')" >Assign</button>
+            <button type="button" style="float:right;font-size: small;padding: 0px 0px;" class="btn btn-secondary" onClick="assign('.$rowww["instructor_id"].')" >'.$roww_ins["coun"].'</button>
         </div>';
         }
+      }
       
     echo '</div>
     

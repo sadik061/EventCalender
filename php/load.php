@@ -19,7 +19,9 @@ foreach($result as $row)
   'title'   => $row["title"],
   'extendedProps' => [
     'Description' => $row["Description"],
-    'funded_by' => $row["funded_by"]
+    'funded_by' => $row["funded_by"],
+    'organized_by' => $row["organized_by"],
+    'venu' => $row["venu"]
   ],
   'start'   => $row["start_event"],
   'end'   => $row["end_event"],

@@ -291,7 +291,7 @@
         document.getElementById("listt").innerHTML = this.responseText;
       }
     };
-    xmlhttp.open("GET", "php/getInstituteresult.php?search=" + page, true);
+    xmlhttp.open("GET", "php/getInstituteresult.php?search=" + page+"&time=" + new Date().getTime(), true);
     xmlhttp.send();
   }
 </script>

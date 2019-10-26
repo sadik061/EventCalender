@@ -30,6 +30,12 @@
               <span>Instructors </span>
               </a>
           </li>
+          <li>
+            <a href="report.php">
+              <i class="fa fa-map-marker"></i>
+              <span>Report </span>
+              </a>
+          </li>
         </ul>
         <!-- sidebar menu end-->
       </div>

@@ -4,52 +4,87 @@
 
   <section class="wrapper">
     <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
+      <div class="modal-dialog" role="document" style="    max-width: 70%;">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="ModalTile">Event</h5>
+            <h5 class="modal-title" id="ModalTile">Create New Event</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
             <form>
-              <div class="form-group">
-                <label for="recipient-name" class="col-form-label">Event title</label>
-                <input type="text" class="form-control" id="title">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Event title</label>
+                    <input type="text" class="form-control" id="title">
+                  </div>
+                  <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Funded By</label>
+                    <input type="text" class="form-control" id="fund">
+                  </div>
+                  <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Organized By</label>
+                    <input type="text" class="form-control" id="organize">
+                  </div>
+                  <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Venu</label>
+                    <input type="text" class="form-control" id="venu">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="recipient-name" class="datepicker col-form-label">Start Date:</label>
+                    <input type="date" class="form-control" id="start">
+                  </div>
+                  <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">End Date:</label>
+                    <input type="date" class="form-control" id="end">
+                  </div>
+                  <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Color:</label>
+                    <select class="form-control" id="clr">
+                      <option value="orange" style="color: orange">Orange</option>
+                      <option value="#007bff80" style="color: #007bff80">Blue</option>
+                      <option value="#dc3545b5" style="color: #dc3545b5">Red</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Note:</label>
+                    <input type="text" class="form-control" id="Des">
+                  </div>
+                </div>
               </div>
-              <div class="form-group">
-                <label for="recipient-name" class="col-form-label">Funded By</label>
-                <input type="text" class="form-control" id="fund">
-              </div>
-              <div class="form-group">
-                <label for="recipient-name" class="col-form-label">Start Date:</label>
-                <input type="text" class="form-control" id="start">
-              </div>
-              <div class="form-group">
-                <label for="recipient-name" class="col-form-label">End Date:</label>
-                <input type="text" class="form-control" id="end">
-              </div>
-              <div class="form-group">
-              <label for="recipient-name" class="col-form-label">Color:</label>
-                <select class="form-control" id="clr">
-                  <option value="orange" style="color: orange">Orange</option>
-                  <option value="#007bff80" style="color: #007bff80">Blue</option>
-                  <option value="#dc3545b5" style="color: #dc3545b5">Red</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="recipient-name" class="col-form-label">Description:</label>
-                <input type="text" class="form-control" id="Des">
-              </div>
-
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-dismiss="modal" id="save">Save</button>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="remove">Remove</button>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" id="save">Choose participents</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" id="remove">Remove</button>
 
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="previeww" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="ModalTile">Event Preview</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="col-lg-12" id="preview">
+              
+              <!-- /row -->
+            </div>
+          </div>
+          <div class="modal-footer">
+<!--
+            <button type="button" class="btn btn-primary" data-dismiss="modal" id="premove">Remove</button>
+-->
           </div>
         </div>
       </div>
