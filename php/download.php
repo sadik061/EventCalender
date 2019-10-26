@@ -47,7 +47,17 @@ $query = "SELECT * FROM events where title like '%".$ename."%' and funded_by lik
 $statement = $connect->prepare($query);
 $statement->execute();
 $result = $statement->fetchAll();
-foreach ($result as $row) {
+
+$parent = array();
+for ($i = 0; $i < $statement->rowCount(); $i++) {
+  $n = sizeof($result[$i]) / 2;
+  $child = array();
+  for($j=0; $j<$n; $j++){
+    array_push($child,$result[$i][$j]);
+  }
+  array_push($parent,$child);
+}
+foreach ($parent as $row) {
      fputcsv($output, $row);
     }
 ?>
