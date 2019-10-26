@@ -2,10 +2,10 @@
 include 'database.php';
 
 
-$query = "INSERT INTO test (name) VALUES ('abc')";
+// $query = "INSERT INTO test (name) VALUES ('abc')";
 
-$statement = $connect->prepare($query);
-$statement->execute();
+// $statement = $connect->prepare($query);
+// $statement->execute();
 // include 'database.php';
 
 // $query = "SELECT * FROM events WHERE events.start_event LIKE ";
