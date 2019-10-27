@@ -85,7 +85,8 @@ foreach ($result as $row) {
         echo  '<div  style="border: 1px solid #dfd4d4;background-color: pink;border-radius: 8px;padding: 0px 0px;padding-left: 10px;">
             name:'.$roww["name"].'
             <button type="button" style="float:right;font-size: small;padding: 0px 0px;" class="btn btn-secondary" onClick="showCalender('.$roww["instructor_id"].')" >Calender</button> 
-            <button type="button" style="float:right;font-size: small;padding: 0px 0px;" class="btn btn-secondary" onClick="assign('.$roww["instructor_id"].')" >'.$roww_ins["coun"].'</button>
+            <button type="button" style="float:right;font-size: small;padding: 0px 0px;" class="btn btn-secondary" onClick="assign('.$roww["instructor_id"].')" >Assign</button>
+            <tr>'.$roww_ins["coun"].'
         </div>';
         }
         }
@@ -102,7 +103,8 @@ foreach ($result as $row) {
             echo  '<div  style="border: 1px solid #dfd4d4;background-color: #5aa25a;color:white;border-radius: 8px;padding: 0px 0px;padding-left: 10px;" >
             name:'.$rowww["name"].' 
             <button type="button" style="float:right;font-size: small;padding: 0px 0px;" class="btn btn-secondary" onClick="showCalender('.$rowww["instructor_id"].')" >Calender</button>
-            <button type="button" style="float:right;font-size: small;padding: 0px 0px;" class="btn btn-secondary" onClick="assign('.$rowww["instructor_id"].')" >'.$roww_ins["coun"].'</button>
+            <button type="button" style="float:right;font-size: small;padding: 0px 0px;" class="btn btn-secondary" onClick="assign('.$rowww["instructor_id"].')" >Assign</button>
+            '.$roww_ins["coun"].'
         </div>';
         }
       }

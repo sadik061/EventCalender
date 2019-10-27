@@ -216,3 +216,7 @@ ul.sidebar-menu li a {
 ul.sidebar-menu li a.active, ul.sidebar-menu li a:hover, ul.sidebar-menu li a:focus {
   background: #0D7EFF;
 }
+.fc {
+  border: 0px solid;
+  border-bottom: 0px solid lightgray;
+}

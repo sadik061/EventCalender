@@ -37,17 +37,35 @@ $query = "SELECT * FROM events where title like '%" . $ename . "%' and funded_by
 $statement = $connect->prepare($query);
 $statement->execute();
 $result = $statement->fetchAll();
-
-// echo json_encode($result);
-// echo $statement->rowCount();
-$parent = array();
-for ($i = 0; $i < $statement->rowCount(); $i++) {
-  $n = sizeof($result[$i]) / 2;
-  $child = array();
-  for($j=0; $j<$n; $j++){
-    array_push($child,$result[$i][$j]);
-  }
-  array_push($parent,$child);
+foreach ($result as $row) {
+  $queryy = "SELECT count(*) as numb FROM participents where event_id=".$row["event_id"];
+  $statementt = $connect->prepare($queryy);
+  $statementt->execute();
+  $resultt = $statementt->fetchAll();
+  foreach ($resultt as $roww) {
+  echo '<div class="message-p pn">
+<div class="message-header">
+</div>
+<div class="row">
+  <div class="col-md-5">
+    <p>
+      Name: '.$row["title"].'
+    </p>
+    <p>Funded By: '.$row["funded_by"].'</p>
+    <p>Participents: '.$roww["numb"].'</p>
+  </div>
+  <div class="col-md-4">
+  <p>Venu: '.$row["venu"].'</p>
+  <p>Organized By: '.$row["organized_by"].'</p>
+  </div>
+  <div class="col-md-3">
+  <p>Start: '.$row["start_event"].'</p>
+  <p>End: '.$row["end_event"].'</p>
+  </div>
+</div>';
+  echo '</div>
+</div>
+</div>';
 }
-
-echo json_encode($parent);
+}
+?>

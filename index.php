@@ -1,4 +1,5 @@
-<?php include 'layout/header.php' ?>
+<?php $page = 'calender';
+include 'layout/header.php' ?>
 <?php include 'layout/sidebar.php' ?>
 <section id="main-content">
 
@@ -48,6 +49,10 @@
                       <option value="orange" style="color: orange">Orange</option>
                       <option value="#007bff80" style="color: #007bff80">Blue</option>
                       <option value="#dc3545b5" style="color: #dc3545b5">Red</option>
+                      <option value="#e731e7" style="color: #e731e7">Purple</option>
+                      <option value="yellow" style="color: yellow">Yellow</option>
+                      <option value="#00ff00" style="color: #00ff00">Green</option>
+                      <option value="#b4b4b4" style="color: #b4b4b4">Gray</option>
                     </select>
                   </div>
                   <div class="form-group">
@@ -60,7 +65,6 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-primary" data-dismiss="modal" id="save">Choose participents</button>
-            <button type="button" class="btn btn-primary" data-dismiss="modal" id="remove">Remove</button>
 
           </div>
         </div>

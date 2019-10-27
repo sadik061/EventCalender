@@ -1,4 +1,5 @@
-<?php include 'layout/header.php' ?>
+<?php $page = 'institute';
+include 'layout/header.php' ?>
 <?php include 'layout/sidebar.php' ?>
 
 <section id="main-content">
@@ -115,16 +116,13 @@
     </div>
 
     <form class="form-inline" role="form" _lpchecked="1">
-      <div class="col-lg-6">
+      <div class="col-lg-10">
         <label class="sr-only" for="exampleInputEmail2">Institute Name</label>
         <input type="text" class="form-control " placeholder="Type Institute name to search" id="sname" oninput="myFunction()" autocomplete="off">
 
       </div>
-      <div class="col-lg-3">
-        <label class="sr-only" for="exampleInputEmail2">Area</label>
-        <input type="text" class="form-control " placeholder="" id="sarea" autocomplete="off">
-      </div>
-      <div class="col-lg-3">
+      
+      <div class="col-lg-2">
         <button type="button" class="btn btn-theme" data-toggle="modal" data-target="#exampleModal">
           Add new institution
         </button>

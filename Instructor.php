@@ -1,4 +1,5 @@
-<?php include 'layout/header.php' ?>
+<?php $page = 'instructor';
+include 'layout/header.php' ?>
 <?php include 'layout/sidebar.php' ?>
 
 <section id="main-content">

@@ -7,7 +7,7 @@ header('Content-Disposition: attachment; filename=data.csv');
 $output = fopen('php://output', 'w');
 
 // output the column headings
-fputcsv($output, array('Column 1', 'Column 2', 'Column 3','Column 1', 'Column 2', 'Column 3','Column 1', 'Column 2', 'Column 3','Column 1', 'Column 2', 'Column 3'));
+fputcsv($output, array('Event', 'Funded By', 'Organized By','Venu', 'Description', 'Start','End', 'Participents'));
 // fetch the data
 $ename = "";
 $fname= "";
@@ -52,12 +52,18 @@ $parent = array();
 for ($i = 0; $i < $statement->rowCount(); $i++) {
   $n = sizeof($result[$i]) / 2;
   $child = array();
-  for($j=0; $j<$n; $j++){
-    array_push($child,$result[$i][$j]);
-  }
-  array_push($parent,$child);
-}
+  $queryy = "SELECT count(*) as numb FROM participents where event_id=".$result[$i]['0'];
+    $statementt = $connect->prepare($queryy);
+    $statementt->execute();
+    $resultt = $statementt->fetchAll();
+    foreach ($resultt as $roww) {
+        for($j=1; $j<$n-1; $j++){
+            array_push($child,$result[$i][$j]);
+        }
+        array_push($child,$roww["numb"]);
+    }
+    array_push($parent,$child);
+    }
 foreach ($parent as $row) {
      fputcsv($output, $row);
     }
-?>

@@ -1,4 +1,5 @@
-<?php include 'layout/header.php' ?>
+<?php $page = 'report';
+include 'layout/header.php' ?>
 <?php include 'layout/sidebar.php' ?>
 
 <section id="main-content">
@@ -59,12 +60,12 @@
             <button type="button" style="float: right;" class="btn btn-primary" onclick="download()">Download Result</button>
 <hr>
 
-            <div class="row"></div>
-                <div class="col-lg-12" id="listt">
+           
+                <div id="listt">
 
                 </div>
                 
-            </div>
+            
 
 
     </section>

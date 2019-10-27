@@ -62,7 +62,7 @@ echo '<div class="row-fluid">
   <div class="dataTables_paginate paging_bootstrap pagination">
     <ul>';
 for ($page=1;$page<=$number_of_pages;$page++) {
-    echo '<li><a href="institute.php?page=' . $page . '&search='.$id.'">' . $page . '</a></li>';
+    echo '<li><a href="event.php?page=' . $page . '&search='.$id.'">' . $page . '</a></li>';
 }      
 echo '</ul>
   </div>
