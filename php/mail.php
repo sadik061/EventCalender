@@ -4,15 +4,15 @@ include 'database.php';
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-$from = 'From: DGNM <info@theicthub.com>';
+$from = 'From: DGNM <info@snmp-dgnm.org>';
 $to = 'saif.ahmed.anik.0@gmail.com';
 
 $subject = 'DGNM Event Remainder';
 $msg = '';
 
-$header = "Reply-To: The Sender <info@theicthub.com>\r\n";
-$header .= "Return-Path: The Sender <info@theicthub.com>\r\n";
-$header .= "From: DGNM <info@theicthub.com>\r\n";
+$header = "Reply-To: The Sender <info@snmp-dgnm.org>\r\n";
+$header .= "Return-Path: The Sender <info@snmp-dgnm.org>\r\n";
+$header .= "From: DGNM <info@snmp-dgnm.org>\r\n";
 $header .= "Organization: UNFPA\r\n";
 $header .= "MIME-Version: 1.0\r\n";
 $header .= "Content-type: text/plain; charset=iso-8859-1\r\n";
