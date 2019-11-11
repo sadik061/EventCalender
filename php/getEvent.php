@@ -44,7 +44,15 @@ foreach ($result as $row) {
     </div>
     <div class="col-md-7">
       
-      <p>Funded By: '.$row["funded_by"].'</p>
+      <p>Funded By: ';
+      $queryy = "SELECT * FROM funded_by natural join funder where event_id=" . $row["event_id"];
+$statementt = $connect->prepare($queryy);
+$statementt->execute();
+$resultt = $statementt->fetchAll();
+foreach ($resultt as $roww) {           
+            echo '<div class="chip" style="    margin-bottom: 0rem;">' . $roww["name"] . '</div>';
+}
+      echo '</p>
       <p class="message">Description: '.$row["Description"].'</p>
     </div>
     <div class=" pull-right hidden-sm hidden-xs">

@@ -1,5 +1,9 @@
 <?php
 $id = $_GET["search"];
+$designation = "";
+if(isset($_GET["designation"])){
+  $designation= $_GET["designation"];
+}
 if ($_GET["search"] != "") {
     echo "SHowing result for '" . $_GET["search"] . "'";
 }
@@ -18,8 +22,7 @@ if (!isset($_GET['page'])) {
     $page = $_GET['page'];
 }
 $this_page_first_result = ($page - 1) * $results_per_page;
-$query = "SELECT * FROM institute LEFT join instructor on instructor.institute_id=institute.institute_id where name like '%" . $id . "%' LIMIT " . $this_page_first_result . "," .  $results_per_page;
-
+$query = "SELECT * FROM institute LEFT join instructor on instructor.institute_id=institute.institute_id where name like '%" . $id . "%' and Designation like '%" . $designation . "%' LIMIT " . $this_page_first_result . "," .  $results_per_page;
 $statement = $connect->prepare($query);
 $statement->execute();
 $result = $statement->fetchAll();
@@ -49,7 +52,7 @@ foreach ($result as $row) {
       </p>
       </div>
     <div class="col-md-2 centered hidden-sm hidden-xs">
-    <button class="btn btn-xs" id="edit" onClick="edit(' . $row["instructor_id"] . ',\'' . $row["name"] . '\',\'' . $row["Designation"] . '\',\'' . $row["contact"] . '\',' . $row["institute_id"] . ',\''.$row["namee"].'\')" ><i class="fa fa-pencil "></i></button>
+    <button class="btn btn-xs" id="edit" onClick="edit(' . $row["instructor_id"] . ',\'' . $row["name"] . '\',\'' . $row["Designation"] . '\',\'' . $row["contact"] . '\',' . $row["institute_id"] . ',\''.$row["namee"].'\',\''.$row["email"].'\')" ><i class="fa fa-pencil "></i></button>
     <button class="btn btn-xs" id="remove" onClick="remove(' . $row["instructor_id"] . ')" ><i class="fa fa-trash-o"></i></button>
     </div>
   </div>

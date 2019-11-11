@@ -19,18 +19,27 @@ foreach ($result as $row) {
           </div>
         </div>
         <div class="form-group row">
-          <label for="inputPassword" class="col-sm-4 col-form-label">Venu: </label>
+          <label for="inputPassword" class="col-sm-4 col-form-label">Funded By: </label>
           <div class="col-sm-8">
-            <label id="pvenu" class="col-form-label">'.$row["venu"].'</label>
+            <label id="pvenu" class="col-form-label">';
+            
+$queryy = "SELECT * FROM funded_by natural join funder where event_id=" . $id;
+$statementt = $connect->prepare($queryy);
+$statementt->execute();
+$resultt = $statementt->fetchAll();
+foreach ($resultt as $roww) {           
+            echo '<div class="chip" style="    margin-bottom: 0rem;">' . $roww["name"] . '</div>';
+}
+            echo '</label>
           </div>
         </div>
 
 
       
       <div class="form-group row">
-        <label for="inputPassword" class="col-sm-4 col-form-label">Funded By: </label>
+        <label for="inputPassword" class="col-sm-4 col-form-label">Venu: </label>
         <div class="col-sm-8">
-          <label id="pfund" class="col-form-label">'.$row["funded_by"].'</label>
+          <label id="pfund" class="col-form-label">'.$row["venu"].'</label>
         </div>
       </div>
       <div class="form-group row">
@@ -65,11 +74,11 @@ foreach ($result as $row) {
   foreach ($result as $row) {
       if($row["Designation"]=="Midwives"){
   echo  '<div  style="border: 1px solid #dfd4d4;border-radius: 8px;padding: 0px 0px;padding-left: 10px;">
-              '.$row["name"].' <button type="button" style="float:right;font-size: small;padding: 0px 0px;" class="btn btn-secondary" onClick="remove('.$row["instructor_id"].')" >Remove</button>
+              '.$row["name"].' 
           </div>';
       }else{
           echo  '<div  style="border: 1px solid #dfd4d4;border-radius: 8px;padding: 0px 0px;padding-left: 10px;" >
-              '.$row["name"].' <button type="button" style="float:right;font-size: small;padding: 0px 0px;" class="btn btn-secondary" onClick="remove('.$row["instructor_id"].')" >Remove</button>
+              '.$row["name"].'
           </div>';
       }
   

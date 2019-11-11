@@ -93,7 +93,7 @@ include 'layout/header.php' ?>
         xmlhttp.send();
     }
     function download() {
-        window.location.href = "php/download.php?ename=" + $("#ename").val() + "&fname=" + $("#fname").val() + "&oname=" + $("#oname").val() + "&vname=" + $("#vname").val() + "&month=" + $("#month").val() + "&year=" + $("#year").val();
+        window.location.href = "php/download.php?ename=" + $("#ename").val() + "&fname=" + $("#fname").val() + "&oname=" + $("#oname").val() + "&vname=" + $("#vname").val() + "&month=" + $("#month").val() + "&year=" + $("#year").val() + "&time=" + new Date().getTime();
     }
 
     

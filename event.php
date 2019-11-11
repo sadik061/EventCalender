@@ -6,27 +6,24 @@ include 'layout/header.php'; ?>
   <section class="wrapper">
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document"  style="    max-width: 70%;">
+      <div class="modal-dialog" role="document" style="    max-width: 70%;">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Add new Event</h5>
+            <h5 class="modal-title" id="ModalTile">Create New Event</h5>
+            <h5 class="modal-title" id="fundtitle" style="display: none;">Add New Funder In The Database</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-
           <div class="modal-body">
-          <form>
+            <form id="maincontent">
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="recipient-name" class="col-form-label">Event title</label>
                     <input type="text" class="form-control" id="title">
                   </div>
-                  <div class="form-group">
-                    <label for="recipient-name" class="col-form-label">Funded By</label>
-                    <input type="text" class="form-control" id="fund">
-                  </div>
+
                   <div class="form-group">
                     <label for="recipient-name" class="col-form-label">Organized By</label>
                     <input type="text" class="form-control" id="organize">
@@ -34,6 +31,16 @@ include 'layout/header.php'; ?>
                   <div class="form-group">
                     <label for="recipient-name" class="col-form-label">Venu</label>
                     <input type="text" class="form-control" id="venu">
+                  </div>
+                  <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Select from the dropdown to add funders to this event</label>
+                    <span id="fundlist">
+                    </span>
+                    <label for="recipient-name" class="col-form-label">Funded By</label>
+                    <span id="selectedfunders"></span>
+
+
+
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -65,9 +72,28 @@ include 'layout/header.php'; ?>
               </div>
             </form>
 
+            <form id="addfunderpanel" style="display:none;">
+              <div class="row">
+                <div class="col-md-6" id="allfunderlist">
+                
+
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">New Funder name:</label>
+                    <input type="text" class="form-control" id="newfunder">
+                  </div>
+                  <button type="button" class="btn btn-primary" onclick="uploadfunder();">Add funder to database</button>
+                </div>
+              </div>
+            </form>
+
           </div>
+
           <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal" id="save">Choose participents</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" id="save">Choose participents</button>
+            <button style="display:none;" type="button" class="btn" onclick="hideaddfund();" id="back"><i class="fa fa-long-arrow-left"></i></button>
           </div>
         </div>
       </div>
@@ -134,9 +160,7 @@ include 'layout/header.php'; ?>
       </div>
     </div>
 
-
-   
-
+    
     <form class="form-inline" role="form" _lpchecked="1">
       <div class="col-lg-10">
         <label class="sr-only" for="exampleInputEmail2">Institute Name</label>
@@ -151,13 +175,12 @@ include 'layout/header.php'; ?>
       </div>
 
     </form>
-
-
     <hr>
+    
     <div id="listt">
 
     </div>
-
+    
 
   </section>
   <!-- /wrapper -->
@@ -165,9 +188,13 @@ include 'layout/header.php'; ?>
 <?php include 'layout/footer.php' ?>
 
 <script>
+   var funder = new Set();
+  var funderid = new Set();
   $(document).ready(function() {
     var number = getUrlParam('page', 'Empty');
     var search = getUrlParam('search', '');
+   
+    showfunders();
     if (number == 'Empty') {
       showInstitutes(1, search);
     } else {
@@ -358,7 +385,6 @@ include 'layout/header.php'; ?>
     xmlhttp.open("GET", "php/getEvent.php", true);
     xmlhttp.send();
   }
-
   function showInstitutes(page, search) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
@@ -368,5 +394,106 @@ include 'layout/header.php'; ?>
     };
     xmlhttp.open("GET", "php/getEvent.php?page=" + page + "&search=" + search+"&time=" + new Date().getTime(), true);
     xmlhttp.send();
+  }
+  function showfunders() {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("fundlist").innerHTML = this.responseText;
+      }
+    };
+    xmlhttp.open("GET", "php/showfunders.php?time=" + new Date().getTime(), true);
+    xmlhttp.send();
+  }
+
+  function addFunder() {
+    var fundid = $("#fund").val();
+    var fund = $("#fund option:selected").text();
+    if (fund != "Select new Funder") {
+      funder.add(fund);
+      funderid.add(fundid)
+      var result = '';
+      var funderArry = Array.from(funder);
+      var fundidArry = Array.from(funderid);
+      for (i = 0; i < funder.size; i++) {
+        result = result + '<div class="chip">' + funderArry[i] + '<i class="fa fa-times" onclick="removefunder(' + '\'' + funderArry[i] + '\',' + fundidArry[i] + ')"></i></div>';
+      }
+      document.getElementById("selectedfunders").innerHTML = result;
+      showfunders()
+    }
+  }
+
+  function removefunder(value, id) {
+    funder.delete(value);
+    funderid.delete(id);
+    var result = '';
+    var funderArry = Array.from(funder);
+    var fundidArry = Array.from(funderid);
+    for (i = 0; i < funder.size; i++) {
+      result = result + '<div class="chip">' + funderArry[i] + '<i class="fa fa-times" onclick="removefunder(' + '\'' + funderArry[i] + '\',' + fundidArry[i] + ')"></i></div>';
+    }
+    document.getElementById("selectedfunders").innerHTML = result;
+    showfunders()
+  }
+
+  function showaddfund() {
+    $("#fundtitle").show();
+    $("#ModalTile").hide();
+    $("#maincontent").hide();
+    $("#save").hide();
+    $("#back").show();
+    $("#addfunderpanel").show();
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("allfunderlist").innerHTML = this.responseText;
+      }
+    };
+    xmlhttp.open("GET", "php/showfunderslist.php?time=" + new Date().getTime(), true);
+    xmlhttp.send();
+  }
+
+
+  function hideaddfund() {
+    $("#ModalTile").show();
+    $("#maincontent").show();
+    $("#save").show();
+    $("#back").hide();
+    $("#addfunderpanel").hide();
+    $("#fundtitle").hide();
+  }
+
+  function uploadfunder() {
+    var funderr = $("#newfunder").val();
+    $.ajax({
+      url: "php/insertfunder.php",
+      type: "POST",
+      data: {
+        name: funderr
+      },
+      success: function() {
+        showaddfund();
+        showfunders();
+        $("#newfunder").val("");
+      }
+    })
+  }
+
+  function removefunderfromdatabase(id) {
+    var r = confirm("Delete funder from main database!");
+    if (r == true) {
+      $.ajax({
+        url: "php/deletefunder.php",
+        type: "POST",
+        data: {
+          id: id
+        },
+        success: function() {
+          showaddfund();
+          showfunders();
+          $("#newfunder").val("");
+        }
+      })
+    }
   }
 </script>

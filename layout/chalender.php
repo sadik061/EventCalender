@@ -2,6 +2,8 @@
   $(function() {
     $('[data-toggle="tooltip"]').tooltip()
   })
+  var funder = new Set();
+  var funderid = new Set();
   document.addEventListener('DOMContentLoaded', function() {
 
     var calendarEl = document.getElementById('calendar');
@@ -49,6 +51,7 @@
         var sstart = arg.start.getFullYear() + "-" + month + "-" + dayy;
         $('#start').val(sstart);
         $('#end').val(sstart);
+        showfunders();
         $("#Modal").modal();
         // save button bind a click event every time so unbind it also everytime
         $("#save").unbind("click").click(function() {
@@ -74,15 +77,19 @@
               venu: venu
             },
             success: function(data) {
-              $("#title").val("");
-              $("#fund").val("");
-              $("#Des").val("");
-              $("#start").val("");
-              $("#end").val("");
-              $("#clr").val("");
-              $("#organize").val("");
-              $("#venu").val("");
               calendar.refetchEvents();
+              var fundidArry = Array.from(funderid);
+              for (i = 0; i < funder.size; i++) {
+                $.ajax({
+                  url: "php/insertfund.php",
+                  type: "POST",
+                  data: {
+                    funder_id: fundidArry[i],
+                    event_id: data
+                  },
+                  success: function() {}
+                })
+              }
               window.location.href = 'insertparticipents.php?event_id=' + data;
             }
           })
@@ -139,17 +146,8 @@
         xmlhttp.open("GET", "php/getpreview.php?event=" + id + "&time=" + new Date().getTime(), true);
         xmlhttp.send();
         $("#previeww").modal();
-        $("#premove").unbind("click").click(function() {
-          $.ajax({
-            url: "php/delete.php",
-            type: "POST",
-            data: {
-              id: id
-            },
-            success: function() {
-              calendar.refetchEvents();
-            }
-          })
+        $("#pedit").unbind("click").click(function() {
+          window.location.href = 'insertparticipents.php?event_id=' + id;
         });
 
       },
@@ -209,5 +207,107 @@
     var nav = $("#" + id).data("navigation");
     var to = $("#" + id).data("to");
     console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
+  }
+
+  function showfunders() {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("fundlist").innerHTML = this.responseText;
+      }
+    };
+    xmlhttp.open("GET", "php/showfunders.php?time=" + new Date().getTime(), true);
+    xmlhttp.send();
+  }
+
+  function addFunder() {
+    var fundid = $("#fund").val();
+    var fund = $("#fund option:selected").text();
+    if (fund != "Select new Funder") {
+      funder.add(fund);
+      funderid.add(fundid)
+      var result = '';
+      var funderArry = Array.from(funder);
+      var fundidArry = Array.from(funderid);
+      for (i = 0; i < funder.size; i++) {
+        result = result + '<div class="chip">' + funderArry[i] + '<i class="fa fa-times" onclick="removefunder(' + '\'' + funderArry[i] + '\',' + fundidArry[i] + ')"></i></div>';
+      }
+      document.getElementById("selectedfunders").innerHTML = result;
+      showfunders()
+    }
+  }
+
+  function removefunder(value, id) {
+    funder.delete(value);
+    funderid.delete(id);
+    var result = '';
+    var funderArry = Array.from(funder);
+    var fundidArry = Array.from(funderid);
+    for (i = 0; i < funder.size; i++) {
+      result = result + '<div class="chip">' + funderArry[i] + '<i class="fa fa-times" onclick="removefunder(' + '\'' + funderArry[i] + '\',' + fundidArry[i] + ')"></i></div>';
+    }
+    document.getElementById("selectedfunders").innerHTML = result;
+    showfunders()
+  }
+
+  function showaddfund() {
+    $("#fundtitle").show();
+    $("#ModalTile").hide();
+    $("#maincontent").hide();
+    $("#save").hide();
+    $("#back").show();
+    $("#addfunderpanel").show();
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("allfunderlist").innerHTML = this.responseText;
+      }
+    };
+    xmlhttp.open("GET", "php/showfunderslist.php?time=" + new Date().getTime(), true);
+    xmlhttp.send();
+  }
+
+
+  function hideaddfund() {
+    $("#ModalTile").show();
+    $("#maincontent").show();
+    $("#save").show();
+    $("#back").hide();
+    $("#addfunderpanel").hide();
+    $("#fundtitle").hide();
+  }
+
+  function uploadfunder() {
+    var funderr = $("#newfunder").val();
+    $.ajax({
+      url: "php/insertfunder.php",
+      type: "POST",
+      data: {
+        name: funderr
+      },
+      success: function() {
+        showaddfund();
+        showfunders();
+        $("#newfunder").val("");
+      }
+    })
+  }
+
+  function removefunderfromdatabase(id) {
+    var r = confirm("Delete funder from main database!");
+    if (r == true) {
+      $.ajax({
+        url: "php/deletefunder.php",
+        type: "POST",
+        data: {
+          id: id
+        },
+        success: function() {
+          showaddfund();
+          showfunders();
+          $("#newfunder").val("");
+        }
+      })
+    }
   }
 </script>

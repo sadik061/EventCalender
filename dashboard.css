@@ -209,14 +209,73 @@ ul.sidebar-menu li a {
 .modal-footer {
   border-top: 0px solid #dee2e6;
 }
-.fc{
-  border: 0px solid;
-  border-bottom: 1px solid lightgray;
-}
+
 ul.sidebar-menu li a.active, ul.sidebar-menu li a:hover, ul.sidebar-menu li a:focus {
   background: #0D7EFF;
 }
-.fc {
-  border: 0px solid;
-  border-bottom: 0px solid lightgray;
+
+.chip {
+  display: inline-block;
+  height: 32px;
+  padding: 0 12px;
+  margin-bottom: 1rem;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 32px;
+  color: rgba(0,0,0,.6);
+  cursor: pointer;
+  background-color: #eceff1;
+  border-radius: 16px;
+  transition: all .3s linear;
+}
+.fa-times{
+  margin-left: 13px;
+}
+.fa-long-arrow-left{
+  font-size: xx-large;
+  color: #0D7EFF;
+}
+
+.tooltip {
+  position: relative;
+  display: contents;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 230px;
+  background-color: #ffffffc7;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 5px;
+  border: 1px solid black;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+.particepents_red{
+  border: 1px solid #dfd4d4;
+  background-color: white;
+  color:black;
+  border-radius: 8px;
+  padding: 0px 0px;
+  display: flex;
+  padding-right: 41px;
+}
+.particepents_red:hover{
+  background-color: #007bff;
+  color: white;
+}
+.tbutton{
+  width: 100%;
+}
+.tab-content>.tab-pane {
+  margin-top: 3%;
 }

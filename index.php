@@ -9,22 +9,20 @@ include 'layout/header.php' ?>
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="ModalTile">Create New Event</h5>
+            <h5 class="modal-title" id="fundtitle" style="display: none;">Add New Funder In The Database</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <form>
+            <form id="maincontent">
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="recipient-name" class="col-form-label">Event title</label>
                     <input type="text" class="form-control" id="title">
                   </div>
-                  <div class="form-group">
-                    <label for="recipient-name" class="col-form-label">Funded By</label>
-                    <input type="text" class="form-control" id="fund">
-                  </div>
+
                   <div class="form-group">
                     <label for="recipient-name" class="col-form-label">Organized By</label>
                     <input type="text" class="form-control" id="organize">
@@ -32,6 +30,16 @@ include 'layout/header.php' ?>
                   <div class="form-group">
                     <label for="recipient-name" class="col-form-label">Venu</label>
                     <input type="text" class="form-control" id="venu">
+                  </div>
+                  <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Select from the dropdown to add funders to this event</label>
+                    <span id="fundlist">
+                    </span>
+                    <label for="recipient-name" class="col-form-label">Funded By</label>
+                    <span id="selectedfunders"></span>
+
+
+
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -62,10 +70,29 @@ include 'layout/header.php' ?>
                 </div>
               </div>
             </form>
+
+            <form id="addfunderpanel" style="display:none;">
+              <div class="row">
+                <div class="col-md-6" id="allfunderlist">
+                
+
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">New Funder name:</label>
+                    <input type="text" class="form-control" id="newfunder">
+                  </div>
+                  <button type="button" class="btn btn-primary" onclick="uploadfunder();">Add funder to database</button>
+                </div>
+              </div>
+            </form>
+
           </div>
+
           <div class="modal-footer">
             <button type="button" class="btn btn-primary" data-dismiss="modal" id="save">Choose participents</button>
-
+            <button style="display:none;" type="button" class="btn" onclick="hideaddfund();" id="back"><i class="fa fa-long-arrow-left"></i></button>
           </div>
         </div>
       </div>
@@ -81,14 +108,14 @@ include 'layout/header.php' ?>
           </div>
           <div class="modal-body">
             <div class="col-lg-12" id="preview">
-              
+
               <!-- /row -->
             </div>
           </div>
           <div class="modal-footer">
-<!--
-            <button type="button" class="btn btn-primary" data-dismiss="modal" id="premove">Remove</button>
--->
+            
+            <button type="button" class="btn btn-primary" data-dismiss="modal" id="pedit">Edit</button>
+
           </div>
         </div>
       </div>

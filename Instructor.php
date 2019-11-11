@@ -41,9 +41,10 @@ include 'layout/header.php' ?>
 
               <div class="col-sm-10">
                 <select id="Designation" class="form-control ">
-                  <option value="Midwives">Midwives</option>
-                  <option value="Nurse">Nurse</option>
-
+                  <option value="mid_Faculty">Dct. mid Faculty</option>
+                  <option value="SRHR">Dct. mid Faculty SRHR</option>
+                  <option value="Principal">Principal</option>
+                  <option value="Nursing">Nursing Faculty</option>
                 </select>
               </div>
             </div>
@@ -53,6 +54,14 @@ include 'layout/header.php' ?>
 
               <div class="col-sm-10">
                 <input type="text" class="form-control " id="contactt" autocomplete="off">
+              </div>
+            </div>
+            <div class="form-group row">
+
+              <label class="col-sm-2 col-form-label">Email</label>
+
+              <div class="col-sm-10">
+                <input type="text" class="form-control " id="emaill" autocomplete="off">
               </div>
             </div>
 
@@ -82,7 +91,7 @@ include 'layout/header.php' ?>
               <label class="col-sm-2 col-form-label">Name</label>
 
               <div class="col-sm-10">
-              <input type="text" style="display:none;" class="form-control " id="eid" autocomplete="off">
+                <input type="text" style="display:none;" class="form-control " id="eid" autocomplete="off">
                 <input type="text" class="form-control " id="enamee" autocomplete="off">
               </div>
             </div>
@@ -102,8 +111,10 @@ include 'layout/header.php' ?>
 
               <div class="col-sm-10">
                 <select id="eDesignation" class="form-control ">
-                  <option value="Midwives">Midwives</option>
-                  <option value="Nurse">Nurse</option>
+                  <option value="mid_Faculty">Dct. mid Faculty</option>
+                  <option value="SRHR">Dct. mid Faculty SRHR</option>
+                  <option value="Principal">Principal</option>
+                  <option value="Nursing">Nursing Faculty</option>
 
                 </select>
               </div>
@@ -114,6 +125,14 @@ include 'layout/header.php' ?>
 
               <div class="col-sm-10">
                 <input type="text" class="form-control " id="econtactt" autocomplete="off">
+              </div>
+            </div>
+            <div class="form-group row">
+
+              <label class="col-sm-2 col-form-label">Email</label>
+
+              <div class="col-sm-10">
+                <input type="text" class="form-control " id="eemail" autocomplete="off">
               </div>
             </div>
 
@@ -127,16 +146,27 @@ include 'layout/header.php' ?>
     </div>
 
 
-   
 
-    <form class="form-inline" role="form" _lpchecked="1">
-      <div class="col-lg-10">
+
+    <form class="form-inline" role="form" _lpchecked="1" style="padding-bottom: 1%;">
+      <div class="col-lg-6" style="padding-left: 0px;">
         <label class="sr-only" for="exampleInputEmail2">Instructor Name</label>
         <input type="text" class="form-control " placeholder="Type Instructor name to search" id="sname" oninput="myFunction()" autocomplete="off">
 
       </div>
-      
-      <div class="col-lg-2">
+      <div class="col-lg-4" style="padding-right:0px;">
+        <label class="sr-only" for="exampleInputEmail2">Area</label>
+
+        <select id="sdesignation" class="form-control " autocomplete="off" oninput="myFunction()">
+          <option value="">Select a Designation</option>
+          <option value="mid_Faculty">Dct. mid Faculty</option>
+          <option value="SRHR">Dct. mid Faculty SRHR</option>
+          <option value="Principal">Principal</option>
+          <option value="Nursing">Nursing Faculty</option>
+        </select>
+      </div>
+
+      <div class="col-lg-2"  style="padding-right: 0px;">
         <button type="button" class="btn btn-theme" data-toggle="modal" data-target="#exampleModal">
           Add new instructor
         </button>
@@ -144,8 +174,9 @@ include 'layout/header.php' ?>
 
     </form>
 
-
+    <button type="button" style="float: right;" class="btn btn-primary" onclick="download()">Download Result</button>
     <hr>
+    
     <div id="listt">
 
     </div>
@@ -166,10 +197,11 @@ include 'layout/header.php' ?>
       showInstitutes(number, search);
     }
     $("#submitt").unbind("click").click(function() {
-      if ($("#instituteid").val()!= "") {
+      if ($("#instituteid").val() != "") {
         var namee = $("#namee").val();
         var id = $("#instituteid").val();
         var contact = $("#contactt").val();
+        var email = $("#emaill").val();
         var Designation = $("#Designation").val();
         $.ajax({
           url: "php/instructor.php",
@@ -179,6 +211,7 @@ include 'layout/header.php' ?>
             id: id,
             contact: contact,
             Designation: Designation,
+            email: email,
           },
           success: function() {
             $("#namee").val("");
@@ -186,6 +219,7 @@ include 'layout/header.php' ?>
             $("#institute").val("");
             $("#contactt").val("");
             $("#Designation").val("");
+            $("#emaill").val("");
             if (number == 'Empty') {
               showInstitutes(1, search);
             } else {
@@ -193,11 +227,11 @@ include 'layout/header.php' ?>
             }
           }
         })
-      }else{
+      } else {
         alert("No institute found");
       }
     });
-    
+
 
     $("#Update").unbind("click").click(function() {
       var id = $("#eid").val();
@@ -205,6 +239,7 @@ include 'layout/header.php' ?>
       var Designation = $("#eDesignation").val();
       var contact = $("#econtactt").val();
       var instituteid = $("#einstituteid").val();
+      var email = $("#eemail").val();
       $.ajax({
         url: "php/updateinstructor.php",
         type: "POST",
@@ -213,13 +248,15 @@ include 'layout/header.php' ?>
           namee: namee,
           Designation: Designation,
           contact: contact,
-          instituteid: instituteid
+          instituteid: instituteid,
+          email: email
         },
         success: function() {
           $("#enamee").val("");
           $("#earea").val("");
           $("#econtactt").val("");
           $("#eaddress").val("");
+          $("#eemail").val("");
           if (number == 'Empty') {
             showInstitutes(1, search);
           } else {
@@ -229,18 +266,20 @@ include 'layout/header.php' ?>
       })
     });
   })
-  function edit(id, name, Designation, contact, institute_id,institutename) {
+
+  function edit(id, name, Designation, contact, institute_id, institutename, email) {
     $("#eid").val(id);
     $("#enamee").val(name);
     $("#econtactt").val(contact);
     $("#eDesignation").val(Designation);
-    $("#einstituteid").val(institute_id); 
-    $("#einstitute").val(institutename); 
+    $("#einstituteid").val(institute_id);
+    $("#einstitute").val(institutename);
+    $("#eemail").val(email);
     $('#editModal').modal();
   }
 
   function myFunction() {
-    showInstitutes(1, $("#sname").val());
+    showInstitutess(1, $("#sname").val(),$("#sdesignation").val());
   }
 
   function instituteSuggestion() {
@@ -254,6 +293,7 @@ include 'layout/header.php' ?>
     xmlhttp.open("GET", "php/searchinstitute.php?search=" + search, true);
     xmlhttp.send();
   }
+
   function einstituteSuggestion() {
     var search = $("#einstitute").val()
     var xmlhttp = new XMLHttpRequest();
@@ -266,7 +306,7 @@ include 'layout/header.php' ?>
     xmlhttp.send();
   }
 
-  
+
 
   function remove(id) {
     $.ajax({
@@ -303,14 +343,14 @@ include 'layout/header.php' ?>
     return urlparameter;
   }
 
-  function showInstitutes() {
+  function showInstitutess(page, search, designation) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         document.getElementById("listt").innerHTML = this.responseText;
       }
     };
-    xmlhttp.open("GET", "php/getinstructor.php", true);
+    xmlhttp.open("GET", "php/getinstructor.php?page=" + page + "&search=" + search + "&designation=" + designation + "&time=" + new Date().getTime(), true);
     xmlhttp.send();
   }
 
@@ -321,7 +361,10 @@ include 'layout/header.php' ?>
         document.getElementById("listt").innerHTML = this.responseText;
       }
     };
-    xmlhttp.open("GET", "php/getinstructor.php?page=" + page + "&search=" + search +"&time=" + new Date().getTime(), true);
+    xmlhttp.open("GET", "php/getinstructor.php?page=" + page + "&search=" + search + "&time=" + new Date().getTime(), true);
     xmlhttp.send();
   }
+  function download() {
+        window.location.href = "php/downloadinstructor.php?search=" + $("#sname").val() + "&designation=" + $("#sdesignation").val() + "&time=" + new Date().getTime();
+    }
 </script>

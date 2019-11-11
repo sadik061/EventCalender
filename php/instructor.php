@@ -1,6 +1,6 @@
 <?php
     include 'database.php';
-    $query = "INSERT INTO instructor (name, institute_id, contact, Designation) VALUES (:namee, :id, :contact, :Designation)";
+    $query = "INSERT INTO instructor (name, institute_id, contact, Designation,email) VALUES (:namee, :id, :contact, :Designation, :email)";
     $statement = $connect->prepare($query);
     $statement->execute(
         array(
@@ -8,6 +8,7 @@
             ':id'  => $_POST['id'],
             ':contact' => $_POST['contact'],
             ':Designation' => $_POST['Designation'],
+            ':email' => $_POST['email'],
         )
     );
 ?>

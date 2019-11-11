@@ -30,7 +30,17 @@ include 'layout/header.php' ?>
               <label class="col-sm-2 col-form-label">Location</label>
 
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="area" autocomplete="off">
+                <select id="area" class="form-control" autocomplete="off">
+                  <option value="">Select a area</option>
+                  <option value="Dhaka">Dhaka</option>
+                  <option value="Barishal ">Barishal</option>
+                  <option value="Chittagong ">Chittagong</option>
+                  <option value="Mymensingh">Mymensingh</option>
+                  <option value="Khulna ">Khulna</option>
+                  <option value="Rajshahi">Rajshahi</option>
+                  <option value="Rangpur">Rangpur</option>
+                  <option value="Sylhet">Sylhet</option>
+                </select>
               </div>
             </div>
             <div class="form-group row">
@@ -86,7 +96,18 @@ include 'layout/header.php' ?>
               <label class="col-sm-2 col-form-label">Location</label>
 
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="earea" autocomplete="off">
+                
+                <select id="earea" class="form-control" autocomplete="off">
+                  <option value="">Select a area</option>
+                  <option value="Dhaka">Dhaka</option>
+                  <option value="Barishal ">Barishal</option>
+                  <option value="Chittagong ">Chittagong</option>
+                  <option value="Mymensingh">Mymensingh</option>
+                  <option value="Khulna ">Khulna</option>
+                  <option value="Rajshahi">Rajshahi</option>
+                  <option value="Rangpur">Rangpur</option>
+                  <option value="Sylhet">Sylhet</option>
+                </select>
               </div>
             </div>
             <div class="form-group row">
