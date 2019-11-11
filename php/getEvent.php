@@ -19,7 +19,7 @@ if (!isset($_GET['page'])) {
     $page =$_GET['page'];
   }
 $this_page_first_result = ($page-1)*$results_per_page;
-    $query = "SELECT * FROM events where title like '%".$id."%' LIMIT " . $this_page_first_result . "," .  $results_per_page;
+    $query = "SELECT * FROM events where title like '%".$id."%' ORDER BY event_id DESC LIMIT " . $this_page_first_result . "," .  $results_per_page;
 
 
 $statement = $connect->prepare($query);

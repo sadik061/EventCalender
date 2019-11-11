@@ -268,6 +268,7 @@ ul.sidebar-menu li a.active, ul.sidebar-menu li a:hover, ul.sidebar-menu li a:fo
   padding: 0px 0px;
   display: flex;
   padding-right: 41px;
+  margin-bottom: 3px;
 }
 .particepents_red:hover{
   background-color: #007bff;
@@ -278,4 +279,17 @@ ul.sidebar-menu li a.active, ul.sidebar-menu li a:hover, ul.sidebar-menu li a:fo
 }
 .tab-content>.tab-pane {
   margin-top: 3%;
+}
+.message-p p {
+  margin-left: 10px;
+  margin-bottom: 0px;
+}
+.instructorlist{
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 10px;
+}
+.tab-content{
+  border: 1px solid lightgray;
+  padding: 1%;
 }

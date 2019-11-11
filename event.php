@@ -20,7 +20,7 @@ include 'layout/header.php'; ?>
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="recipient-name" class="col-form-label">Event title</label>
+                    <label for="recipient-name" class="col-form-label">Event Title</label>
                     <input type="text" class="form-control" id="title">
                   </div>
 

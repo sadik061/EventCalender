@@ -1,3 +1,8 @@
-User: theicth1_event
-Database: theicth1_event
-database user pass: b#$o[_5ytLr0
+Database
+User: snmpdgnm_event
+Database: snmpdgnm_event
+database password: g-RNQ9Kcfhn?
+
+<?php
+$connect = new PDO('mysql:host=localhost;dbname=snmpdgnm_event', 'snmpdgnm_event', 'g-RNQ9Kcfhn?');
+?>

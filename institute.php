@@ -136,8 +136,8 @@ include 'layout/header.php' ?>
       </div>
     </div>
 
-    <form class="form-inline" role="form" _lpchecked="1">
-      <div class="col-lg-10">
+    <form class="form-inline" role="form" _lpchecked="1" style="padding-bottom: 1%;">
+      <div class="col-lg-10" style="padding-left:0px;">
         <label class="sr-only" for="exampleInputEmail2">Institute Name</label>
         <input type="text" class="form-control " placeholder="Type Institute name to search" id="sname" oninput="myFunction()" autocomplete="off">
 
@@ -150,7 +150,7 @@ include 'layout/header.php' ?>
       </div>
 
     </form>
-
+    <button type="button" style="float: right;" class="btn btn-primary" onclick="download()">Download Result</button>
 
     <hr>
     <div id="listt">
@@ -313,4 +313,7 @@ include 'layout/header.php' ?>
     xmlhttp.open("GET", "php/getInstituteresult.php?search=" + page+"&time=" + new Date().getTime(), true);
     xmlhttp.send();
   }
+  function download() {
+        window.location.href = "php/downloadinstitute.php?search=" + $("#sname").val() + "&time=" + new Date().getTime();
+    }
 </script>

@@ -77,7 +77,7 @@ foreach ($result as $row) {
     
     </div>
   </div>
-  <div  style="display:none;" class="row" id="details'.$count.'">
+  <div  style="display:none;" class="row instructorlist" id="details'.$count.'">
 
     <div class="col-md-12"><p style="color: #5aa25a">Dct. mid Faculty</p>';
     $count +=1;

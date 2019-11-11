@@ -22,7 +22,7 @@ if (!isset($_GET['page'])) {
     $page = $_GET['page'];
 }
 $this_page_first_result = ($page - 1) * $results_per_page;
-$query = "SELECT * FROM institute LEFT join instructor on instructor.institute_id=institute.institute_id where name like '%" . $id . "%' and Designation like '%" . $designation . "%' LIMIT " . $this_page_first_result . "," .  $results_per_page;
+$query = "SELECT * FROM institute LEFT join instructor on instructor.institute_id=institute.institute_id where name like '%" . $id . "%' and Designation like '%" . $designation . "%' ORDER BY instructor_id DESC LIMIT " . $this_page_first_result . "," .  $results_per_page;
 $statement = $connect->prepare($query);
 $statement->execute();
 $result = $statement->fetchAll();

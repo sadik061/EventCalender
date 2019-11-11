@@ -63,6 +63,11 @@
           var end = $("#end").val();
           var organize = $("#organize").val();
           var venu = $("#venu").val();
+          if( (title ==="") || (fund ==="") || (start ==="") || (end ==="") || (organize ==="") || (venu ==="") ){
+            if(title ===""){
+
+            }
+          }else{
           $.ajax({
             url: "php/insert.php",
             type: "POST",
@@ -93,6 +98,7 @@
               window.location.href = 'insertparticipents.php?event_id=' + data;
             }
           })
+          }
 
         });
 
@@ -309,5 +315,15 @@
         }
       })
     }
+  }
+
+  function showdetails(number){
+      if(number===1){
+        $(".details").show();
+        $("#hidedetails").hide();
+      }else{
+        $(".details").hide();
+        $("#hidedetails").show();
+      }
   }
 </script>

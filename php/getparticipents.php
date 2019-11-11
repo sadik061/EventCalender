@@ -17,8 +17,10 @@ $statement->execute();
 $result = $statement->fetchAll();
 echo '<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">';
 foreach ($result as $row) {
-echo  '<div  style="border: 1px solid #dfd4d4;background-color: pink;border-radius: 8px;padding: 0px 0px;padding-left: 10px;">
-            '.$row["name"].' <button type="button" style="float:right;font-size: small;padding: 0px 0px;" class="btn btn-secondary" onClick="remove('.$row["instructor_id"].')" >Remove</button>
+echo  '<div class="particepents_red">
+<div class="col-md-11">'.$row["name"].'</div>
+<div class="col-md-1">
+<i class="fa fa-times" onClick="remove('.$row["instructor_id"].')"></i></div>
         </div>';
    
 }
@@ -45,16 +47,19 @@ echo '<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledb
 </div>
 <button type="button" class="btn btn-primary" onclick="addr();">Add Resource Person</button><hr>';
 foreach ($resultt as $row) {
-    echo  '<div  style="border: 1px solid #dfd4d4;background-color: pink;border-radius: 8px;padding: 0px 0px;padding-left: 10px;">
-                '.$row["namee"].' <button type="button" style="float:right;font-size: small;padding: 0px 0px;" class="btn btn-secondary" onClick="removeResource('.$row["id"].')" >Remove</button>
-            </div>';
+    echo  '<div class="particepents_red">
+    <div class="col-md-11">'.$row["namee"].'</div>
+    <div class="col-md-1">
+    <i class="fa fa-times" onClick="removeResource('.$row["id"].')"></i>
+    </div></div>';
        
     }
 foreach ($result as $row) {
-echo  '<div  style="border: 1px solid #dfd4d4;background-color: pink;border-radius: 8px;padding: 0px 0px;padding-left: 10px;">
-            '.$row["name"].' <button type="button" style="float:right;font-size: small;padding: 0px 0px;" class="btn btn-secondary" onClick="remove('.$row["instructor_id"].')" >Remove</button>
-        </div>';
-   
+  echo  '<div class="particepents_red">
+  <div class="col-md-11">'.$row["name"].'</div>
+  <div class="col-md-1">
+  <i class="fa fa-times" onClick="removeResource('.$row["instructor_id"].')"></i>
+  </div></div>';   
 }
 echo '</div>';
 ?>

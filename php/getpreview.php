@@ -51,13 +51,13 @@ foreach ($resultt as $roww) {
             <div class="form-group row">
               <label for="inputPassword" class="col-sm-4 col-form-label">Start date: </label>
               <div class="col-sm-8">
-                <label id="pstart" class="col-form-label">'.date('Y-m-d', strtotime($row["start_event"])).'</label>
+                <label id="pstart" class="col-form-label">'.date('d-m-y', strtotime($row["start_event"])).'</label>
               </div>
             </div>
             <div class="form-group row">
               <label for="inputPassword" class="col-sm-4 col-form-label">End date: </label>
               <div class="col-sm-8">
-                <label id="pend" class="col-form-label">'.date('Y-m-d', strtotime($row["end_event"])).'</label>
+                <label id="pend" class="col-form-label">'.date('d-m-y', strtotime($row["end_event"])).'</label>
               </div>
             </div>
 
@@ -65,22 +65,39 @@ foreach ($resultt as $roww) {
       </div>
     </div>
     <!-- /col-md-4 -->
-  </div>';
-  $query = "SELECT * FROM instructor natural join participents where event_id=" . $id;
+  </div>
+  <p id="hidedetails" onclick="showdetails(1);" style="float: right;  ">Show more details</p>
+  <p  class="details" onclick="showdetails(0);" style="float: right;display:none">Hide details</p>
+  <div class="details" style="display:none;">';
+  $query = "SELECT * FROM instructor natural join participents where event_id=" . $id." and present=1";
   $statement = $connect->prepare($query);
   $statement->execute();
   $result = $statement->fetchAll();
-  echo "<h5>List of participents</h5>";
+  echo "<h5>List of Resource Person</h5>";
   foreach ($result as $row) {
-      if($row["Designation"]=="Midwives"){
-  echo  '<div  style="border: 1px solid #dfd4d4;border-radius: 8px;padding: 0px 0px;padding-left: 10px;">
-              '.$row["name"].' 
-          </div>';
-      }else{
           echo  '<div  style="border: 1px solid #dfd4d4;border-radius: 8px;padding: 0px 0px;padding-left: 10px;" >
               '.$row["name"].'
           </div>';
-      }
-  
   }
+  $query = "SELECT * FROM resource_person where event_id=" . $id;
+  $statement = $connect->prepare($query);
+  $statement->execute();
+  $result = $statement->fetchAll();
+  foreach ($result as $row) {
+    echo  '<div  style="border: 1px solid #dfd4d4;border-radius: 8px;padding: 0px 0px;padding-left: 10px;" >
+        '.$row["namee"].'
+    </div>';
+}
+
+  $query = "SELECT * FROM instructor natural join participents where event_id=" . $id." and present=0";
+  $statement = $connect->prepare($query);
+  $statement->execute();
+  $result = $statement->fetchAll();
+  echo "<h5>List of Participents</h5>";
+  foreach ($result as $row) {
+          echo  '<div  style="border: 1px solid #dfd4d4;border-radius: 8px;padding: 0px 0px;padding-left: 10px;" >
+              '.$row["name"].'
+          </div>';
+  }
+  echo '</div>';
 }

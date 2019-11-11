@@ -36,6 +36,12 @@
               <span>Report </span>
               </a>
           </li>
+          <li>
+            <a href="logout.php">
+              <i class="fa fa-minus-square"></i>
+              <span>Logout </span>
+              </a>
+          </li>
         </ul>
         <!-- sidebar menu end-->
       </div>

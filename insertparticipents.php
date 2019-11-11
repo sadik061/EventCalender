@@ -114,14 +114,14 @@
            
           </div>
           <!-- /col-md-4 -->
-          <p style="text-align:right;width:100%;margin-bottom:0px;margin-top: -20px;">hide details</p>
+         
         </div>
         <!-- /row -->
       </div>
     <?php } ?>
     <hr>
     <div class="row">
-      <div class="col-lg-8">
+      <div class="col-lg-6">
       <form class="form-inline" role="form" _lpchecked="1">
       <div class="col-lg-8" style="padding-left:0px;">
         <label class="sr-only" for="exampleInputEmail2">Institute Name</label>
@@ -150,7 +150,7 @@
         <span id="listt"></span>
 
       </div>
-      <div class="col-lg-4" id="participents">
+      <div class="col-lg-6" id="participents">
 
       </div>
     </div>

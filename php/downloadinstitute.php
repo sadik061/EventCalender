@@ -1,13 +1,13 @@
 <?php 
 // output headers so that the file is downloaded rather than displayed
 header('Content-Type: text/csv; charset=utf-8');
-header('Content-Disposition: attachment; filename=Instructors.csv');
+header('Content-Disposition: attachment; filename=Institute List.csv');
 
 // create a file pointer connected to the output stream
 $output = fopen('php://output', 'w');
 
 // output the column headings
-fputcsv($output, array('Name', 'Designation', 'Institute Name','Contact', 'Email', 'Area'));
+fputcsv($output, array('Name', 'Area', 'Address','Contact'));
 // fetch the data
 $search = "";
 $designation= "";
@@ -15,20 +15,18 @@ $designation= "";
 if(isset($_GET["search"])){
     $search = $_GET["search"];
 }
-if(isset($_GET["designation"])){
-    $designation = $_GET["designation"];
-}
+
 
 include 'database.php';
-$query = "SELECT instructor.name,Designation,namee,instructor.contact,email,area FROM instructor inner join institute on institute.institute_id=instructor.institute_id where name like '%".$search."%' and Designation like '%".$designation."%'";
+$query = "SELECT * FROM institute where namee like '%".$search."%'";
 $statement = $connect->prepare($query);
 $statement->execute();
 $result = $statement->fetchAll();
 $parent = array();
 for ($i = 0; $i < $statement->rowCount(); $i++) {
-  $n = 6;
+  $n = 5;
   $child = array();
-        for($j=0; $j<$n; $j++){
+        for($j=1; $j<$n; $j++){
             array_push($child,$result[$i][$j]);
         }
         array_push($parent,$child);
