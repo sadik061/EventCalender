@@ -40,21 +40,24 @@
       <div class="col-lg-12">
         <div class="row">
           <div class="col-md-4 profile-text ">
+          <div id="al" class="alert alert-danger" role="alert" style="display:none;">
+                    Please fill all the mendatory(*) fields
+                  </div>
             <div class=" hidden-sm hidden-xs">
               <div class="form-group row">
-                <label for="inputPassword" class="col-sm-2 col-form-label">Event</label>
+                <label for="inputPassword" class="col-sm-2 col-form-label">Event*</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control fcc" id="title" value="<?php echo $row["title"] ?>">
                 </div>
               </div>
               <div class="form-group row">
-                <label for="inputPassword" class="col-sm-2 col-form-label">Venu</label>
+                <label for="inputPassword" class="col-sm-2 col-form-label">Venu*</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control fcc" id="venu" value="<?php echo $row["venu"] ?>">
                 </div>
               </div>
               <div class="form-group row">
-                <label for="inputPassword" class="col-sm-2 col-form-label">Description</label>
+                <label for="inputPassword" class="col-sm-2 col-form-label">Note</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control fcc" id="description" value="<?php echo $row["Description"] ?>">
                 </div>
@@ -66,7 +69,7 @@
           <div class="col-md-4 profile-text ">
 
             <div class="form-group row">
-              <label for="inputPassword" class="col-sm-4 col-form-label">Organized By</label>
+              <label for="inputPassword" class="col-sm-4 col-form-label">Organized By*</label>
               <div class="col-sm-8">
                 <input type="text" class="form-control fcc" id="organize" value="<?php echo $row["organized_by"] ?>">
               </div>
@@ -77,7 +80,7 @@
               </span>
             </div>
             <div class="form-group row" style="    margin-bottom: 0rem;">
-              <label for="inputPassword" class="col-sm-4 col-form-label">Funded By</label>
+              <label for="inputPassword" class="col-sm-4 col-form-label">Funded By*</label>
               <div class="col-sm-8">
                 <span id="selectedfunders"></span>
               </div>
@@ -93,13 +96,13 @@
               <div class="col-md-9 profile-text">
                 <div class="profile-pic">
                   <div class="form-group row">
-                    <label for="inputPassword" class="col-sm-2 col-form-label">Start</label>
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Start*</label>
                     <div class="col-sm-10">
                       <input type="date" class="form-control fcc" id="start" value="<?php echo date('Y-m-d', strtotime($row["start_event"])); ?>">
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="inputPassword" class="col-sm-2 col-form-label">End</label>
+                    <label for="inputPassword" class="col-sm-2 col-form-label">End*</label>
                     <div class="col-sm-10">
                       <input type="date" class="form-control fcc" id="end" value="<?php echo date('Y-m-d', strtotime($row["end_event"])); ?>">
                     </div>
@@ -111,46 +114,50 @@
                 <button type="button" class="btn btn-primary" data-dismiss="modal" id="update">Update</button>
               </div>
             </div>
-           
+
           </div>
           <!-- /col-md-4 -->
-         
+
         </div>
         <!-- /row -->
       </div>
     <?php } ?>
     <hr>
     <div class="row">
-      <div class="col-lg-6">
-      <form class="form-inline" role="form" _lpchecked="1">
-      <div class="col-lg-8" style="padding-left:0px;">
-        <label class="sr-only" for="exampleInputEmail2">Institute Name</label>
-        <input type="text" class="form-control " placeholder="Type Institute name to search" id="sname" oninput="myFunction()" autocomplete="off">
+      <div class="col-lg-7">
+        <form class="form-inline" role="form" _lpchecked="1">
+          <div class="col-lg-8" style="padding-left:0px;">
+            <label class="sr-only" for="exampleInputEmail2">Institute Name</label>
+            <input type="text" class="form-control " placeholder="Type Institute name to search" id="sname" oninput="myFunction()" autocomplete="off">
 
-      </div>
-      <div class="col-lg-4" style="padding-right:0px;">
-        <label class="sr-only" for="exampleInputEmail2">Area</label>
+          </div>
+          <div class="col-lg-4" style="padding-right:0px;">
+            <label class="sr-only" for="exampleInputEmail2">Area</label>
 
-        <select id="sarea" class="form-control " autocomplete="off" oninput="myFunction()">
-          <option value="">Select a area</option>
-          
-                  <option value="Dhaka">Dhaka</option>
-                  <option value="Barishal ">Barishal</option>
-                  <option value="Chittagong ">Chittagong</option>
-                  <option value="Mymensingh">Mymensingh</option>
-                  <option value="Khulna ">Khulna</option>
-                  <option value="Rajshahi">Rajshahi</option>
-                  <option value="Rangpur">Rangpur</option>
-                  <option value="Sylhet">Sylhet</option>
-        </select>
-    </div>
-    <br>
-    <br>
-    </form>
+            <select id="sarea" class="form-control " autocomplete="off" oninput="myFunction()">
+              <option value="">Select a area</option>
+
+              <option value="Dhaka">Dhaka</option>
+              <option value="Barishal ">Barishal</option>
+              <option value="Chittagong ">Chittagong</option>
+              <option value="Mymensingh">Mymensingh</option>
+              <option value="Khulna ">Khulna</option>
+              <option value="Rajshahi">Rajshahi</option>
+              <option value="Rangpur">Rangpur</option>
+              <option value="Sylhet">Sylhet</option>
+            </select>
+          </div>
+          <br>
+          <br>
+        </form>
         <span id="listt"></span>
 
       </div>
-      <div class="col-lg-6" id="participents">
+      <div class="col-lg-5" >
+        <div class="alert alert-success" id="success" role="alert" style="display:none;">
+          
+        </div>
+        <spna id="participents"></spna>
 
       </div>
     </div>
@@ -164,6 +171,7 @@
 <script>
   var funder = new Set();
   var funderid = new Set();
+  var count = 0;
   $(document).ready(function() {
     var number = getUrlParam('page', 'Empty');
     var event = getUrlParam('event_id', '');
@@ -212,38 +220,43 @@
     var end = $("#end").val();
     var organize = $("#organize").val();
     var venu = $("#venu").val();
-    $.ajax({
-      url: "php/updatevent.php",
-      type: "POST",
-      data: {
-        id: event_id,
-        title: title,
-        fund: fund,
-        start: start,
-        end: end,
-        Description: Description,
-        organize: organize,
-        venu: venu
-      },
-      success: function() {
-        var fundidArry = Array.from(funderid);
-        for (i = 0; i < funder.size; i++) {
-          $.ajax({
-            url: "php/insertfund.php",
-            type: "POST",
-            data: {
-              funder_id: fundidArry[i],
-              event_id: event_id
-            },
-            success: function() {}
-          })
+    if ((title === "") || (fund === "") || (start === "") || (end === "") || (organize === "") || (venu === "") || count === 0) {
+      $("#al").show();
+    } else {
+      $.ajax({
+        url: "php/updatevent.php",
+        type: "POST",
+        data: {
+          id: event_id,
+          title: title,
+          fund: fund,
+          start: start,
+          end: end,
+          Description: Description,
+          organize: organize,
+          venu: venu
+        },
+        success: function() {
+          var fundidArry = Array.from(funderid);
+          for (i = 0; i < funder.size; i++) {
+            $.ajax({
+              url: "php/insertfund.php",
+              type: "POST",
+              data: {
+                funder_id: fundidArry[i],
+                event_id: event_id
+              },
+              success: function() {}
+            })
+          }
+          alert("Successfully Updated");
+          window.location.href = 'insertparticipents.php?event_id=' + event_id;
         }
-        alert("Successfully Updated");
-        window.location.href = 'insertparticipents.php?event_id=' + event_id;
-      }
-    })
+      })
+    }
 
   })
+
   function addr() {
     var event_id = getUrlParam('event_id', '');
     var rname = $("#rrname").val();
@@ -259,8 +272,10 @@
       success: function(data) {
         $("#rrname").val("");
         $("#rrorganization").val("");
-        alert(data);
         showParticipents(event_id);
+        $("#success").html("You have successfully Added '"+rname+"'");
+        $("#success").fadeIn();
+        $("#success").fadeOut(3000);
       }
     })
   }
@@ -272,8 +287,7 @@
 
 
 
-  function remove(id) {
-
+  function remove(id,name) {
     var event_id = getUrlParam('event_id', '');
     $.ajax({
       url: "php/deleteparticipents.php",
@@ -284,10 +298,15 @@
       },
       success: function() {
         showParticipents(event_id);
+        //alert("Successfully Removed");
+        $("#success").html("You have successfully removed '"+name+"'");
+        $("#success").fadeIn();
+        $("#success").fadeOut(3000);
       }
     })
   }
-  function removeResource(id){
+
+  function removeResource(id,name) {
     var event_id = getUrlParam('event_id', '');
     $.ajax({
       url: "php/delete_resource.php",
@@ -295,8 +314,11 @@
       data: {
         id: id
       },
-      success: function() {
+      success: function(data) {
         showParticipents(event_id);
+        $("#success").html("You have successfully removed '"+name+"'");
+        $("#success").fadeIn();
+        $("#success").fadeOut(3000);
       }
     })
   }
@@ -340,7 +362,7 @@
     $("#down" + number).css("display", "flex");
   }
 
-  function assign(number) {
+  function assign(number,name) {
     var event_id = getUrlParam('event_id', '');
     $.ajax({
       url: "php/insertParticipents.php",
@@ -350,14 +372,16 @@
         instructor_id: number,
         present: '0'
       },
-      success: function() {
-        alert("Successfully added");
+      success: function(data) {
+        $("#success").html(data);
+        $("#success").fadeIn();
+        $("#success").fadeOut(4000);
         showParticipents(event_id);
       }
     })
   }
 
-  function assignResource(number) {
+  function assignResource(number,name) {
     var event_id = getUrlParam('event_id', '');
     $.ajax({
       url: "php/insertParticipents.php",
@@ -367,8 +391,10 @@
         instructor_id: number,
         present: 1
       },
-      success: function() {
-        alert("Successfully added");
+      success: function(data) {
+        $("#success").html(data);
+        $("#success").fadeIn();
+        $("#success").fadeOut(4000);
         showParticipents(event_id);
       }
     })
@@ -425,6 +451,7 @@
     var fundid = $("#fund").val();
     var fund = $("#fund option:selected").text();
     if (fund != "Select new Funder") {
+      count++;
       funder.add(fund);
       funderid.add(fundid)
       var result = '';
@@ -448,6 +475,7 @@
   }
 
   function removefunder(value, id) {
+    count--;
     funder.delete(value);
     funderid.delete(id);
     var event_id = getUrlParam('event_id', '');
@@ -462,7 +490,6 @@
 
       }
     })
-    addFunder();
     showfunders();
   }
 
@@ -537,6 +564,7 @@
         var array = result[0].split(",");
         console.log(array);
         for (var i = 1; i < array.length; i = i + 2) {
+          count++;
           funder.add(array[i]);
           funderid.add(array[i + 1]);
         }

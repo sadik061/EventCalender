@@ -92,8 +92,8 @@ foreach ($result as $row) {
           echo  '<div class="particepents_red"><div class="col-md-7">'.$roww["name"].
           '</div>
           <div class="col-md-3"><div class="tooltip">Assign
-          <span class="tooltiptext"><button type="button" class="btn btn-secondary tbutton" style="margin-bottom: 2%;" onClick="assignResource('.$roww["instructor_id"].')" >Add as a Resource Persion</button><br>
-          <button type="button"  class="btn btn-secondary tbutton" onClick="assign('.$roww["instructor_id"].')">Add as a participents</button></span></div>
+          <span class="tooltiptext"><button type="button" class="btn btn-secondary tbutton" style="margin-bottom: 2%;" onClick="assignResource('.$roww["instructor_id"].',\''.$roww["name"].'\')" >Add as a Resource Persion</button><br>
+          <button type="button"  class="btn btn-secondary tbutton" onClick="assign('.$roww["instructor_id"].',\''.$roww["name"].'\')">Add as a participant</button></span></div>
           </div><div class="col-md-1">
           <i class="fa fa-calendar" onClick="showCalender('.$roww["instructor_id"].')"></i></div>
           <div class="col-md-1">
@@ -113,8 +113,8 @@ foreach ($result as $row) {
             echo  '<div class="particepents_red"><div class="col-md-7">'.$rowww["name"].
             '</div>
             <div class="col-md-3"><div class="tooltip">Assign
-            <span class="tooltiptext"><button type="button" class="btn btn-secondary tbutton" style="margin-bottom: 2%;" onClick="assignResource('.$rowww["instructor_id"].')" >Add as a Resource Persion</button><br>
-            <button type="button"  class="btn btn-secondary tbutton" onClick="assign('.$rowww["instructor_id"].')">Add as a participents</button></span></div>
+            <span class="tooltiptext"><button type="button" class="btn btn-secondary tbutton" style="margin-bottom: 2%;" onClick="assignResource('.$rowww["instructor_id"].',\''.$rowww["name"].'\')" >Add as a Resource Persion</button><br>
+            <button type="button"  class="btn btn-secondary tbutton" onClick="assign('.$rowww["instructor_id"].',\''.$rowww["name"].'\')">Add as a participant</button></span></div>
             </div><div class="col-md-1">
             <i class="fa fa-calendar" onClick="showCalender('.$rowww["instructor_id"].')"></i></div>
             <div class="col-md-1">
@@ -134,8 +134,8 @@ foreach ($result as $row) {
             echo  '<div class="particepents_red"><div class="col-md-7">'.$rowww["name"].
             '</div>
             <div class="col-md-3"><div class="tooltip">Assign
-            <span class="tooltiptext"><button type="button" class="btn btn-secondary tbutton" style="margin-bottom: 2%;" onClick="assignResource('.$rowww["instructor_id"].')" >Add as a Resource Persion</button><br>
-            <button type="button"  class="btn btn-secondary tbutton" onClick="assign('.$rowww["instructor_id"].')">Add as a participents</button></span></div>
+            <span class="tooltiptext"><button type="button" class="btn btn-secondary tbutton" style="margin-bottom: 2%;" onClick="assignResource('.$rowww["instructor_id"].',\''.$rowww["name"].'\')" >Add as a Resource Persion</button><br>
+            <button type="button"  class="btn btn-secondary tbutton" onClick="assign('.$rowww["instructor_id"].',\''.$rowww["name"].'\')">Add as a participant</button></span></div>
             </div><div class="col-md-1">
             <i class="fa fa-calendar" onClick="showCalender('.$rowww["instructor_id"].')"></i></div>
             <div class="col-md-1">
@@ -155,8 +155,8 @@ foreach ($result as $row) {
               echo  '<div class="particepents_red"><div class="col-md-7">'.$rowww["name"].
               '</div>
               <div class="col-md-3"><div class="tooltip">Assign
-              <span class="tooltiptext"><button type="button" class="btn btn-secondary tbutton" style="margin-bottom: 2%;" onClick="assignResource('.$rowww["instructor_id"].')" >Add as a Resource Persion</button><br>
-              <button type="button"  class="btn btn-secondary tbutton" onClick="assign('.$rowww["instructor_id"].')">Add as a participents</button></span></div>
+              <span class="tooltiptext"><button type="button" class="btn btn-secondary tbutton" style="margin-bottom: 2%;" onClick="assignResource('.$rowww["instructor_id"].',\''.$rowww["name"].'\')" >Add as a Resource Persion</button><br>
+              <button type="button"  class="btn btn-secondary tbutton" onClick="assign('.$rowww["instructor_id"].',\''.$rowww["name"].'\')">Add as a participant</button></span></div>
               </div><div class="col-md-1">
               <i class="fa fa-calendar" onClick="showCalender('.$rowww["instructor_id"].')"></i></div>
               <div class="col-md-1">

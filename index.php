@@ -18,24 +18,27 @@ include 'layout/header.php' ?>
             <form id="maincontent">
               <div class="row">
                 <div class="col-md-6">
+                  <div id="al" class="alert alert-danger" role="alert" style="display:none;">
+                    Please fill all the mendatory(*) fields
+                  </div>
                   <div class="form-group">
-                    <label for="recipient-name" class="col-form-label" id="etitle">Event Title</label>
+                    <label for="recipient-name" class="col-form-label" id="etitle">Event Title*</label>
                     <input type="text" class="form-control" id="title">
                   </div>
 
                   <div class="form-group">
-                    <label for="recipient-name" class="col-form-label">Organized By</label>
+                    <label for="recipient-name" class="col-form-label">Organized By*</label>
                     <input type="text" class="form-control" id="organize">
                   </div>
                   <div class="form-group">
-                    <label for="recipient-name" class="col-form-label">Venu</label>
+                    <label for="recipient-name" class="col-form-label">Venu*</label>
                     <input type="text" class="form-control" id="venu">
                   </div>
                   <div class="form-group">
                     <label for="recipient-name" class="col-form-label">Select from the dropdown to add funders to this event</label>
                     <span id="fundlist">
                     </span>
-                    <label for="recipient-name" class="col-form-label">Funded By</label>
+                    <label for="recipient-name" class="col-form-label">Funded By*</label>
                     <span id="selectedfunders"></span>
 
 
@@ -44,11 +47,11 @@ include 'layout/header.php' ?>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="recipient-name" class="datepicker col-form-label">Start Date:</label>
+                    <label for="recipient-name" class="datepicker col-form-label">Start Date*</label>
                     <input type="date" class="form-control" id="start">
                   </div>
                   <div class="form-group">
-                    <label for="recipient-name" class="col-form-label">End Date:</label>
+                    <label for="recipient-name" class="col-form-label">End Date*</label>
                     <input type="date" class="form-control" id="end">
                   </div>
                   <div class="form-group">
@@ -74,7 +77,7 @@ include 'layout/header.php' ?>
             <form id="addfunderpanel" style="display:none;">
               <div class="row">
                 <div class="col-md-6" id="allfunderlist">
-                
+
 
                 </div>
 
@@ -91,7 +94,7 @@ include 'layout/header.php' ?>
           </div>
 
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-dismiss="modal" id="save">Choose participents</button>
+            <button type="button" class="btn btn-primary"  id="save">Choose participents</button>
             <button style="display:none;" type="button" class="btn" onclick="hideaddfund();" id="back"><i class="fa fa-long-arrow-left"></i></button>
           </div>
         </div>
@@ -113,7 +116,7 @@ include 'layout/header.php' ?>
             </div>
           </div>
           <div class="modal-footer">
-            
+
             <button type="button" class="btn btn-primary" data-dismiss="modal" id="pedit">Edit</button>
 
           </div>

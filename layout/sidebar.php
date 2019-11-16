@@ -2,8 +2,8 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered" style="padding-top: 50px;"><a href="profile.html"><img style="border: 1px solid white;border-radius: 41px;"src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
-          <h5 class="centered" style="color: lightgray;border-bottom: 1px solid lightgray; padding-bottom: 46px;">Sam Soffes</h5>
+          <p class="centered" style="padding-top: 10px;"><a href="settings.php"><img style="height: 80px;border: 1px solid white;border-radius: 41px;"src="img/<?php echo $_SESSION["image"]; ?>" class="img-circle" width="80"></a></p>
+          <h5 class="centered" style="color: #959595;border-bottom: 1px solid lightgray; padding-bottom: 10px; "><?php echo $_SESSION["name"]; ?></h5>
           <li class="mt">
             <a href="index.php" class="<?php if($page=='calender'){echo 'active';}?>">
               <i class="fa fa-calendar"></i>
@@ -36,6 +36,13 @@
               <span>Report </span>
               </a>
           </li>
+          <li>
+            <a href="settings.php" class="<?php if($page=='settings'){echo 'active';}?>">
+              <i class="fa fa-gears"></i>
+              <span>Settings </span>
+              </a>
+          </li>
+          
           <li>
             <a href="logout.php">
               <i class="fa fa-minus-square"></i>

@@ -12,11 +12,11 @@
     <title>DGNM</title>
 </head>
 <body data-gr-c-s-loaded="true">
-<form class="form-signin" style="margin-left: 30%;margin-right: 30%;margin-top: 7%;" action="php/login.php" method="post">
+<form class="form-signin" style="margin-left: 30%;margin-right: 30%;margin-top: 7%;" action="php/forgot.php" method="post">
     <div class="text-center mb-4">
         <img class="mb-4" src="img/dgnm.png" alt="" width="320" height="72">
         
-        <p>Please provide proper Username and Password</p>
+        <p>Enter your email address to recover password</p>
     </div>
     <?php if(isset($_GET["type"])){
     if($_GET["type"]=="alert"){?>
@@ -27,24 +27,16 @@
 
     <div class="form-label-group">
     <label for="inputEmail">Email address</label>
-        <input type="email" id="inputEmail" name="email" class="form-control"  required="" autofocus="">
+        <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required="" autofocus="">
         
     </div>
 
-    <div class="form-label-group">
-    <label for="inputPassword">Password</label>
-        <input type="password" id="inputPassword" name="password" class="form-control"  required="">
-        
-    </div>
-
-    <div class="checkbox mb-3">
-        <label>
-            <input type="checkbox" value="remember-me"> Remember me
-        </label>
-    </div>
+  
+<br>
+  
     
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-    <a href="forgotpassword.php">forgot password?</a>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+    <a href="login.php">Login page</a>
 
 </form>
 

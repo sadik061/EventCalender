@@ -68,6 +68,44 @@ include 'layout/header.php' ?>
         </div>
       </div>
     </div>
+    <div class="modal fade" id="Confirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document" style="max-width: 400px;">
+        <div class="modal-content" style="width: 400px;">
+
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-4">
+              </div>
+              <div class="col-md-4">
+                <img src="img/warning-gif.gif" style="width: 97px;">
+              </div>
+            </div>
+            <div class="col-md-4">
+            </div>
+            <div class="row">
+
+              <div class="col-md-12">
+                <h3 style="text-align: center;margin:5% 0%;">Are you sure?</h3>
+                <p style="text-align: center;margin:5% 0%;">Do you really want to delete these records? This process can not be undone</p>
+              </div>
+
+            </div>
+            <div class="row">
+              <div class="col-md-3">
+              </div>
+              <div class="col-md-6" style="text-align: center;margin:5% 0%;">
+                <button type="button" class="btn btn-primary red" data-dismiss="modal" id="yes">Delete</button>
+                <button type="button" class="btn btn-primary gray" data-dismiss="modal" id="no">Cancel</button>
+              </div>
+            </div>
+            <div class="col-md-3">
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
 
 
     <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -96,7 +134,7 @@ include 'layout/header.php' ?>
               <label class="col-sm-2 col-form-label">Location</label>
 
               <div class="col-sm-10">
-                
+
                 <select id="earea" class="form-control" autocomplete="off">
                   <option value="">Select a area</option>
                   <option value="Dhaka">Dhaka</option>
@@ -142,7 +180,7 @@ include 'layout/header.php' ?>
         <input type="text" class="form-control " placeholder="Type Institute name to search" id="sname" oninput="myFunction()" autocomplete="off">
 
       </div>
-      
+
       <div class="col-lg-2">
         <button type="button" class="btn btn-theme" data-toggle="modal" data-target="#exampleModal">
           Add new institution
@@ -247,21 +285,24 @@ include 'layout/header.php' ?>
   }
 
   function remove(id) {
-    $.ajax({
-      url: "php/deleteinstitute.php",
-      type: "POST",
-      data: {
-        id: id
-      },
-      success: function() {
-        var number = getUrlParam('page', 'Empty');
-        var search = getUrlParam('search', '');
-        if (number == 'Empty') {
-          showInstitutes(1, search);
-        } else {
-          showInstitutes(number, search);
+    $('#Confirm').modal();
+    $("#yes").unbind("click").click(function() {
+      $.ajax({
+        url: "php/deleteinstitute.php",
+        type: "POST",
+        data: {
+          id: id
+        },
+        success: function() {
+          var number = getUrlParam('page', 'Empty');
+          var search = getUrlParam('search', '');
+          if (number == 'Empty') {
+            showInstitutes(1, search);
+          } else {
+            showInstitutes(number, search);
+          }
         }
-      }
+      })
     })
   }
 
@@ -310,10 +351,11 @@ include 'layout/header.php' ?>
         document.getElementById("listt").innerHTML = this.responseText;
       }
     };
-    xmlhttp.open("GET", "php/getInstituteresult.php?search=" + page+"&time=" + new Date().getTime(), true);
+    xmlhttp.open("GET", "php/getInstituteresult.php?search=" + page + "&time=" + new Date().getTime(), true);
     xmlhttp.send();
   }
+
   function download() {
-        window.location.href = "php/downloadinstitute.php?search=" + $("#sname").val() + "&time=" + new Date().getTime();
-    }
+    window.location.href = "php/downloadinstitute.php?search=" + $("#sname").val() + "&time=" + new Date().getTime();
+  }
 </script>

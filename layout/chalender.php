@@ -4,6 +4,7 @@
   })
   var funder = new Set();
   var funderid = new Set();
+  var count = 0;
   document.addEventListener('DOMContentLoaded', function() {
 
     var calendarEl = document.getElementById('calendar');
@@ -63,10 +64,8 @@
           var end = $("#end").val();
           var organize = $("#organize").val();
           var venu = $("#venu").val();
-          if( (title ==="") || (fund ==="") || (start ==="") || (end ==="") || (organize ==="") || (venu ==="") ){
-            if(title ===""){
-
-            }
+          if( (title ==="") || (fund ==="") || (start ==="") || (end ==="") || (organize ==="") || (venu ==="") || count === 0 ){
+            $("#al").show();
           }else{
           $.ajax({
             url: "php/insert.php",
@@ -230,6 +229,7 @@
     var fundid = $("#fund").val();
     var fund = $("#fund option:selected").text();
     if (fund != "Select new Funder") {
+      count++;
       funder.add(fund);
       funderid.add(fundid)
       var result = '';
@@ -246,6 +246,7 @@
   function removefunder(value, id) {
     funder.delete(value);
     funderid.delete(id);
+    count--;
     var result = '';
     var funderArry = Array.from(funder);
     var fundidArry = Array.from(funderid);

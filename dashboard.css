@@ -293,3 +293,23 @@ ul.sidebar-menu li a.active, ul.sidebar-menu li a:hover, ul.sidebar-menu li a:fo
   border: 1px solid lightgray;
   padding: 1%;
 }
+.form-horizontal.style-form .form-group {
+  border-bottom: 0px solid #eff2f7;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+a.logo span {
+  color: #0D7EFF;
+}
+.red{
+  background-color: #ff2f00;
+  border: #ff2f00;
+}
+.red:hover{
+  background-color: #d32801;
+  border: #ff2f00;
+}
+.gray{
+  background-color: gray;
+  border: gray;
+}

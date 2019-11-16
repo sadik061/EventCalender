@@ -6,6 +6,8 @@ if(isset($_COOKIE["remember"])) {
         $_SESSION["login"] = "true";
         $_SESSION["userid"]= $_COOKIE["id"];
         $_SESSION["role"] = $_COOKIE["role"];
+        $_SESSION["image"] = $_COOKIE["image"];
+        $_SESSION["name"] = $_COOKIE["name"];
     }
 }
 if(isset($_SESSION["login"])){

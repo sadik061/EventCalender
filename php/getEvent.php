@@ -38,7 +38,7 @@ foreach ($result as $row) {
   </div>
   <div class="row">
     <div class="col-md-4 hidden-sm hidden-xs">
-      <h5 style="color: '.$row["color"].';padding-left: 2%;">'.$row["title"].'
+      <h5 style="padding-left: 2%;">'.$row["title"].'
       </h5>
      
     </div>
