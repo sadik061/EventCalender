@@ -13,7 +13,6 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-
           <div class="modal-body">
 
             <div id='mcalendar'>
@@ -93,7 +92,7 @@
           <!-- /col-md-4 -->
           <div class="col-md-4">
             <div class="row">
-              <div class="col-md-9 profile-text">
+              <div class="col-md-12 profile-text">
                 <div class="profile-pic">
                   <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">Start*</label>
@@ -107,10 +106,11 @@
                       <input type="date" class="form-control fcc" id="end" value="<?php echo date('Y-m-d', strtotime($row["end_event"])); ?>">
                     </div>
                   </div>
-
                 </div>
               </div>
-              <div class="col-md-3 profile-text mb">
+            </div>
+            <div class="row">
+            <div class="col-md-3 profile-text mb">
                 <button type="button" class="btn btn-primary" data-dismiss="modal" id="update">Update</button>
               </div>
             </div>
@@ -453,7 +453,7 @@
     if (fund != "Select new Funder") {
       count++;
       funder.add(fund);
-      funderid.add(fundid)
+      funderid.add(fundid);
       var result = '';
       var funderArry = Array.from(funder);
       var fundidArry = Array.from(funderid);
@@ -487,6 +487,13 @@
         event_id: event_id
       },
       success: function(data) {
+      var result = '';
+      var funderArry = Array.from(funder);
+      var fundidArry = Array.from(funderid);
+      for (i = 0; i < funder.size; i++) {
+        result = result + '<div class="chip">' + funderArry[i] + '<i class="fa fa-times" onclick="removefunder(' + '\'' + funderArry[i] + '\',' + fundidArry[i] + ')"></i></div>';
+      }
+      document.getElementById("selectedfunders").innerHTML = result;
 
       }
     })

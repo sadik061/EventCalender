@@ -1,11 +1,22 @@
 <?php
 $id = $_GET["search"];
 $designation = "";
+$institute ="";
 if(isset($_GET["designation"])){
   $designation= $_GET["designation"];
 }
+if(isset($_GET["institute"])){
+  $institute= $_GET["institute"];
+  if($_GET["institute"]!="Select an Institute"){
+    $institute= $_GET["institute"];
+  }
+  else{
+    $institute ="";
+  }
+}
+
 if ($_GET["search"] != "") {
-    echo "SHowing result for '" . $_GET["search"] . "'";
+    echo "Showing result for '" . $_GET["search"] . "'";
 }
 include 'database.php';
 $data = array();
@@ -22,7 +33,7 @@ if (!isset($_GET['page'])) {
     $page = $_GET['page'];
 }
 $this_page_first_result = ($page - 1) * $results_per_page;
-$query = "SELECT * FROM institute LEFT join instructor on instructor.institute_id=institute.institute_id where name like '%" . $id . "%' and Designation like '%" . $designation . "%' ORDER BY instructor_id DESC LIMIT " . $this_page_first_result . "," .  $results_per_page;
+$query = "SELECT * FROM institute LEFT join instructor on instructor.institute_id=institute.institute_id where name like '%" . $id . "%' and Designation like '%" . $designation . "%' and namee like '%" . $institute . "%' ORDER BY instructor_id DESC LIMIT " . $this_page_first_result . "," .  $results_per_page;
 $statement = $connect->prepare($query);
 $statement->execute();
 $result = $statement->fetchAll();

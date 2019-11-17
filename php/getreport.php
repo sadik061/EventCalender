@@ -10,9 +10,6 @@ $end = "2099/12/31";
 if (isset($_GET["ename"])) {
   $ename = $_GET["ename"];
 }
-if (isset($_GET["fname"])) {
-  $fname = $_GET["fname"];
-}
 if (isset($_GET["oname"])) {
   $oname = $_GET["oname"];
 }
@@ -32,8 +29,17 @@ if (isset($_GET["year"])) {
     $end = $_GET["year"] . "/12/31";
   }
 }
+if (($_GET["fname"] == "select")) {
+  $query = "SELECT * FROM events where title like '%" . $ename . "%' and organized_by like '%" . $oname . "%' and venu like '%" . $vname . "%' and start_event between  '" . $strt . "' and '" . $end . "'";
+  }else{
+    if (($_GET["fname"] != "undefined")) {
+    $query = "SELECT * FROM events inner join funded_by on events.event_id=funded_by.event_id where title like '%" . $ename . "%' and funded_by.funder_id=" .$_GET["fname"]. " and organized_by like '%" . $oname . "%' and venu like '%" . $vname . "%' and start_event between  '" . $strt . "' and '" . $end . "'";
+    }else{
+      $query = "SELECT * FROM events where title like '%" . $ename . "%' and organized_by like '%" . $oname . "%' and venu like '%" . $vname . "%' and start_event between  '" . $strt . "' and '" . $end . "'";
+    }
+  }
+
 include 'database.php';
-$query = "SELECT * FROM events where title like '%" . $ename . "%' and funded_by like '%" . $fname . "%' and organized_by like '%" . $oname . "%' and venu like '%" . $vname . "%' and start_event between  '" . $strt . "' and '" . $end . "'";
 $statement = $connect->prepare($query);
 $statement->execute();
 $result = $statement->fetchAll();
@@ -51,7 +57,6 @@ foreach ($result as $row) {
     <p>
       Name: '.$row["title"].'
     </p>
-    <p>Funded By: '.$row["funded_by"].'</p>
     <p>Participents: '.$roww["numb"].'</p>
   </div>
   <div class="col-md-4">

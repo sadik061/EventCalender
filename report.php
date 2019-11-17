@@ -19,7 +19,7 @@ include 'layout/header.php' ?>
                             <div class="col-lg-6">
                                 <small class="text-muted">Funded By</small>
                                 <label class="sr-only" for="exampleInputEmail2">Funded By</label>
-                                <input type="text" class="form-control " placeholder="Funded by" id="fname" oninput="myFunction()" autocomplete="off">
+                                <span id="fundlist"></span>
 
                             </div>
                             
@@ -39,7 +39,7 @@ include 'layout/header.php' ?>
                             <div class="col-lg-3">
                                 <small class="text-muted">Quadrant</small>
                                 <select id="month" class="form-control " autocomplete="off" oninput="myFunction()">
-                                    <option value="">Select a Quadrant</option>
+                                    <option value="">Select a Quarter</option>
                                     <option value="01">Jan - March</option>
                                     <option value="04">April - June</option>
                                     <option value="07">July - September</option>
@@ -75,7 +75,8 @@ include 'layout/header.php' ?>
 
 <script>
     $(document).ready(function() {
-            showInstitutes($("#ename").val(), $("#fname").val(), $("#oname").val(), $("#vname").val(), $("#month").val(), $("#year").val());
+        showfunders();
+        showInstitutes($("#ename").val(), $("#fname").val(), $("#oname").val(), $("#vname").val(), $("#month").val(), $("#year").val());
     })
     
 
@@ -95,6 +96,16 @@ include 'layout/header.php' ?>
     function download() {
         window.location.href = "php/download.php?ename=" + $("#ename").val() + "&fname=" + $("#fname").val() + "&oname=" + $("#oname").val() + "&vname=" + $("#vname").val() + "&month=" + $("#month").val() + "&year=" + $("#year").val() + "&time=" + new Date().getTime();
     }
+    function showfunders() {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("fundlist").innerHTML = this.responseText;
+      }
+    };
+    xmlhttp.open("GET", "php/showfundersonly.php?time=" + new Date().getTime(), true);
+    xmlhttp.send();
+  }
 
     
 </script>

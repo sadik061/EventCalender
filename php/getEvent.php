@@ -1,7 +1,7 @@
 <?php
 $id = $_GET["search"];
 if($_GET["search"]!=""){
-    echo "SHowing result for '".$_GET["search"]."'";
+    echo "Showing result for '".$_GET["search"]."'";
 }
 include 'database.php';
 $data = array();

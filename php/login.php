@@ -15,12 +15,18 @@ if ($statement->rowCount() > 0) {
         $_SESSION["userid"] = $row["id"];
         $_SESSION["role"] = $row["role"];
         $_SESSION["name"] = $row["name"];
-        $_SESSION["image"] = $row["image"];
         setcookie("remember", "true", time() + (86400 * 30), "/");
         setcookie("id", $row["id"], time() + (86400 * 30), "/");
         setcookie("role", $row["role"], time() + (86400 * 30), "/");
         setcookie("name", $row["name"], time() + (86400 * 30), "/");
+        if($row["image"]!=""){
         setcookie("image", $row["image"], time() + (86400 * 30), "/");
+        $_SESSION["image"] = $row["image"];
+        }else{
+            setcookie("image", "admin.png", time() + (86400 * 30), "/");
+            $_SESSION["image"] = "admin.png";
+        }
+        
        header('Location: ../index.php');
     }
 } else {

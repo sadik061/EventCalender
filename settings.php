@@ -9,8 +9,9 @@ include 'layout/header.php'; ?>
             <div class="col-3">
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">User profile</a>
+                    <?php if ($_SESSION["role"]==1){ ?>
                     <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Add new user</a>
-
+                    <?php } ?>
                 </div>
             </div>
             <div class="col-9">
@@ -39,13 +40,13 @@ include 'layout/header.php'; ?>
                                         <div class="form-group">
                                             <label class="col-sm-2 col-sm-2 col-form-label">Name</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control fcc" name="user_name" value="<?php echo $row["name"] ?>">
+                                                <input type="text" class="form-control fcc"  name="user_name" value="<?php echo $row["name"] ?>">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-2 col-sm-2 col-form-label">Email</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" value="<?php echo $row["email"] ?>" name="email">
+                                                <input type="email" class="form-control" name="email" value="<?php echo $row["email"] ?>" name="email">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -62,7 +63,7 @@ include 'layout/header.php'; ?>
                     </div>
                 </div>
             </div>
-
+            <?php if ($_SESSION["role"]==1){ ?>
             <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                 <h4>Add New User</h4>
                 <br>
@@ -122,6 +123,7 @@ include 'layout/header.php'; ?>
 
         </div>
         </div>
+                    <?php } ?>
         </div>
 
 

@@ -299,7 +299,7 @@ ul.sidebar-menu li a.active, ul.sidebar-menu li a:hover, ul.sidebar-menu li a:fo
   margin-bottom: 15px;
 }
 a.logo span {
-  color: #0D7EFF;
+  color: #2C3E50;
 }
 .red{
   background-color: #ff2f00;
@@ -312,4 +312,9 @@ a.logo span {
 .gray{
   background-color: gray;
   border: gray;
+}
+
+.scrollspy-example {
+  overflow-y: auto;
+  height: 85%;
 }
