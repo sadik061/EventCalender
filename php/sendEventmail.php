@@ -33,8 +33,6 @@ if ($statement->rowCount() > 0) {
         $msg .= "Time: " . $result[$i]['start_event'] . " to " . $result[$i]['end_event'];
         $msg .= "\r\n";
 
-        include 'mail.php';
-
         sendEmail($email,$subject,$msg);
 
     }
