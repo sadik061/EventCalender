@@ -12,11 +12,12 @@
     <title>DGNM</title>
 </head>
 <body data-gr-c-s-loaded="true">
-<form class="form-signin" style="margin-left: 30%;margin-right: 30%;margin-top: 7%;" action="php/forgot.php" method="post">
+<form class="form-signin" style="margin-left: 30%;margin-right: 30%;margin-top: 4%;" action="php/forgot.php" method="post">
     <div class="text-center mb-4">
-        <img class="mb-4" src="img/dgnm.png" alt="" width="320" height="72">
+    <img class="mb-4" src="img/logo.png"  width="100" height="100"><br>
+    <img class="mb-4" src="img/dgnm.png" width="280" height="82" style="margin-top: -25px;">
         
-        <p>Enter your email address to recover password</p>
+        <p style="margin-top: -25px;">Enter your email address to recover password</p>
     </div>
     <?php if(isset($_GET["type"])){
     if($_GET["type"]=="alert"){?>

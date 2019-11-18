@@ -94,7 +94,8 @@ include 'layout/header.php' ?>
           </div>
 
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary"  id="save">Choose participents</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" id="save">Save</button>
+            <button type="button" class="btn btn-primary"  id="choose">Choose participents</button>
             <button style="display:none;" type="button" class="btn" onclick="hideaddfund();" id="back"><i class="fa fa-long-arrow-left"></i></button>
           </div>
         </div>

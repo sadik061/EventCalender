@@ -51,9 +51,8 @@ foreach ($result as $row) {
     $query5 = "SELECT * FROM instructor where institute_id=".$row["institute_id"]." and Designation='Nursing'";
     $statement5 = $connect->prepare($query5);
     $statement5->execute();
-    echo '<div class="message-p pn">
-  <div class="message-header">
-  </div>
+    echo '<div class="message-p pn lightgray">
+ 
   <div class="row">
     <div class="col-md-2 centered hidden-sm hidden-xs">
       <img src="img/institute.png" class="img-circle" width="65">
@@ -66,9 +65,9 @@ foreach ($result as $row) {
       <p class="message">Address:'.$row["address"].'</p>
     </div>
     <div class="col-md-4">
-      <p ">Dct. mid Faculty : '.$statementt->rowCount().'</p>
-      <p >Dct. mid Faculty SRHR : '.$statementtt->rowCount().'</p>
-      <p >Principal : '.$statement4->rowCount().'</p>
+      <p >Midwifery Faculty : '.$statementt->rowCount().'</p>
+      <p >Midwifery Faculty (SRHR) : '.$statementtt->rowCount().'</p>
+      <p >Principal/Incharge : '.$statement4->rowCount().'</p>
       <p >Nursing Faculty : '.$statement5->rowCount().'</p>
     </div>
     <div class="col-md-1">
@@ -79,7 +78,7 @@ foreach ($result as $row) {
   </div>
   <div  style="display:none;" class="row instructorlist" id="details'.$count.'">
 
-    <div class="col-md-12"><p style="color: #5aa25a">Dct. mid Faculty</p>';
+    <div class="col-md-12"><p style="color: #5aa25a">Midwifery Faculty </p>';
     $count +=1;
     $statementt->execute();
     $resultt = $statementt->fetchAll();
@@ -100,7 +99,7 @@ foreach ($result as $row) {
           '.$roww_ins["coun"].'</div></div>';
         }
         }
-    echo '</div><div class="col-md-12"><p style="color: #5aa25a">Dct. mid Faculty SRHR</p>';
+    echo '</div><div class="col-md-12"><p style="color: #5aa25a">Midwifery Faculty (SRHR)</p>';
     $statementtt->execute();
     $resulttt = $statementtt->fetchAll();  
         foreach ($resulttt as $rowww) {
@@ -121,7 +120,7 @@ foreach ($result as $row) {
             '.$roww_ins["coun"].'</div></div>';
         }
       } 
-    echo '</div><div class="col-md-12"><p style="color: #5aa25a">Principal</p>';
+    echo '</div><div class="col-md-12"><p style="color: #5aa25a">Principal/Incharge</p>';
     $statement4->execute();
     $resulttt = $statement4->fetchAll();  
         foreach ($resulttt as $rowww) {
@@ -163,7 +162,7 @@ foreach ($result as $row) {
               '.$roww_ins["coun"].'</div></div>';
           }
         } 
- echo '</div></div>';
+ echo '</div></div></div>';
 }
 echo '<div class="row-fluid">
 <div class="span6">

@@ -299,7 +299,7 @@ ul.sidebar-menu li a.active, ul.sidebar-menu li a:hover, ul.sidebar-menu li a:fo
   margin-bottom: 15px;
 }
 a.logo span {
-  color: #2C3E50;
+  color: #0D7EFF;
 }
 .red{
   background-color: #ff2f00;
@@ -317,4 +317,69 @@ a.logo span {
 .scrollspy-example {
   overflow-y: auto;
   height: 85%;
+}
+.fc-event-container{
+  cursor: pointer;
+}
+.fc-button-primary {
+  color: #000;
+  background-color: #ffffff;
+  border-color: #2C3E50;
+}
+.fc-button-primary:not(:disabled):active, .fc-button-primary:not(:disabled).fc-button-active {
+  color: #fff;
+  background-color: #0D7EFF;
+  border-color: #151e27;
+}
+.fc-button-primary:hover {
+  color: #fff;
+  background-color: #0D7EFF;
+}
+.fc-button-primary:disabled {
+  color: #fff;
+  background-color: #0D7EFF;
+}
+.fc-button-primary:not(:disabled).fc-button-active:focus {
+  box-shadow: 0 0 0 0rem rgba(76, 91, 106, 0.5); 
+}
+.fc-button-primary:focus {
+  box-shadow: 0 0 0 0rem rgba(76, 91, 106, 0.5); 
+}
+.btn-theme {
+  color: #fff;
+  background-color: #0D7EFF;
+  border-color: #0D7EFF;
+}
+.fc-day-grid-event .fc-time {
+  display: none;
+}
+.fc-title{
+  padding-left: 2%;
+}
+.details, #hidedetails {
+  cursor: pointer;
+}
+.form-control:focus {
+  box-shadow: 0 0 0 0rem rgba(0,123,255,.25);
+}
+.message-p {
+  background: #ffffff;
+  border: 1px solid lightgray;
+  padding: 2%;
+  margin-bottom: 6px;
+}
+.message-p > div > div > h4 > b>  a {
+  color: #797979;
+}
+.message-p:hover, .message-p:hover > .row > .col-md-4 > h4 > b > a,
+ .message-p:hover > .row > div > .pull-right > a > i,
+ .message-p:hover > .row > div > .pull-right > button,
+ .message-p:hover > .row > div >.pull-right > a {
+  background: #0D7EFF;
+  color: white;
+  border-color: white;
+}
+.lightgray:hover {
+  background-color: lightgray;
+  border: gray;
 }

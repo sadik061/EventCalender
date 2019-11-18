@@ -66,8 +66,8 @@ foreach ($resultt as $roww) {
     </div>
     <!-- /col-md-4 -->
   </div>
-  <p id="hidedetails" onclick="showdetails(1);" style="float: right;  ">Show more details</p>
-  <p  class="details" onclick="showdetails(0);" style="float: right;display:none">Hide details</p>
+  <p id="hidedetails" onclick="showdetails(1);" style="color:  #0D7EFF">Show more details</p>
+  <p  class="details" onclick="showdetails(0);" style="color:  #0D7EFF;float: right;display:none">Hide details</p>
   <div class="details" style="display:none;">';
   $query = "SELECT * FROM instructor natural join participents where event_id=" . $id." and present=1";
   $statement = $connect->prepare($query);

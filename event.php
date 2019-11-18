@@ -204,20 +204,23 @@ include 'layout/header.php'; ?>
 
 
     <form class="form-inline" role="form" _lpchecked="1">
-      <div class="col-lg-10">
-        <label class="sr-only" for="exampleInputEmail2">Institute Name</label>
-        <input type="text" class="form-control " placeholder="Type event name to search" id="sname" oninput="myFunction()" autocomplete="off">
-
+      <div class="col-lg-5" style="padding-left:0px;">
+        <div class="input-group-prepend">
+        <input type="text" style="margin-right: -4px;"class="form-control " placeholder="Type event name to search" id="sname" oninput="myFunction()" autocomplete="off">
+        <span class="input-group-text"><i class="fa fa-search"></i></span>  
       </div>
-
-      <div class="col-lg-2">
-        <button type="button" class="btn btn-theme" data-toggle="modal" data-target="#exampleModal">
-          Add new Event
+      </div>
+      
+      <div class="col-lg-7" style="padding-right:0px;">
+      <button type="button" style="float:right;" class="btn btn-theme" data-toggle="modal" data-target="#exampleModal">
+          Add New Event
         </button>
       </div>
 
     </form>
-    <hr>
+    <br>
+    <br>
+    
 
     <div id="listt">
 

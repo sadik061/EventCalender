@@ -3,10 +3,9 @@ include 'database.php';
 include 'mail.php';
 
 $subject = 'DGNM Event Remainder';
-$msg = '';
 
 $query = "SELECT * FROM events NATURAL JOIN participents NATURAL JOIN instructor WHERE events.start_event LIKE ";
-$query .= "CONCAT(date(CURRENT_DATE+1),'%')";
+$query .= "CONCAT(date(CURRENT_DATE+2),'%')";
 
 
 $statement = $connect->prepare($query);
@@ -16,12 +15,14 @@ $statement->execute();
 if ($statement->rowCount() > 0) {
     $result = $statement->fetchAll();
     $n = $statement->rowCount();
-
+    
     for ($i = 0; $i < $n; $i++) {
+        $msg = '';
+
         $msg .=  "Dear " . $result[$i]['name'] . ",";
         $msg .= "\r\n";
 
-        $msg .= "You have a event tomorrow.";
+        $msg .= "You have an event on ".$result[$i]['start_event'];
         $msg .= "\r\n";
 
         $msg .= "Event Information:";

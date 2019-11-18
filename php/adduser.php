@@ -3,7 +3,7 @@
             $statement= $connect->prepare($sql);
             $data = [
                 ':name' => $_POST["auser_name"],
-                ':email' => $_POST["aemail"],
+                ':email' => strtolower($_POST["aemail"]),
                 ':password' => $_POST["apassword"],
                 ':role' => '0',
             ];

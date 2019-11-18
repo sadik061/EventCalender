@@ -23,6 +23,46 @@
         </div>
       </div>
     </div>
+    <div class="modal fade" id="custommail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Custom Mail</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+          <div class="panel-body">
+                
+                <div class="compose-mail">
+                  <form role="form-horizontal" method="post">
+                    
+                    <div class="form-group">
+                      <label for="subject" class="">Subject:</label>
+                      <input type="text" id="subject" class="form-control" style="float:right;border: 1px solid lightgray;">
+                      
+                    </div>
+                    <div class="form-group">
+                    <textarea rows="4" cols="60" id="msg" class="form-control"></textarea>
+                    </div>
+                   
+                   
+                  </form>
+                </div>
+                <div class="compose-btn pull-right">
+                  <button class="btn btn-primary" onclick="customail();"><i class="fa fa-check"></i> Send</button>
+                  <button class="btn btn-sm"><i class="fa fa-times"></i> Discard</button>
+                 
+                </div>
+              </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
     <?php
     $id = $_GET["event_id"];
 
@@ -36,8 +76,10 @@
     foreach ($result as $row) {
       ?>
 
-      <div class="col-lg-12">
-        <div class="row">
+      <div class="col-lg-12" style="border: 1px solid lightgray;padding-top: 0%;">
+        <h3 style="text-align:center; border-bottom: 1px solid lightgray;margin-bottom: 9px;
+">Event Details</h3>
+        <div class="row khulja">
           <div class="col-md-4 profile-text ">
           <div id="al" class="alert alert-danger" role="alert" style="display:none;">
                     Please fill all the mendatory(*) fields
@@ -109,20 +151,32 @@
                 </div>
               </div>
             </div>
-            <div class="row">
-            <div class="col-md-3 profile-text mb">
-                <button type="button" class="btn btn-primary" data-dismiss="modal" id="update">Update</button>
-              </div>
-            </div>
+           
 
           </div>
           <!-- /col-md-4 -->
 
         </div>
+        <div class="row khulja" >
+            <div class="col-md-12 profile-text mb" style="margin-bottom: 8px;">
+                <button type="button" class="btn btn-primary" style="float:right;" data-dismiss="modal" id="update">Update</button>
+                <button type="button" class="btn btn-primary" onclick="sendmail();" id="email"><i class="fa fa-envelope"></i> Confirmation email </button>
+                <button type="button" class="btn btn-primary" onclick="$('#custommail').modal();" id="email"><i class="fa fa-envelope"></i> Custom email </button>
+              
+              </div>
+              
+            </div>
+            <div class="row">
+            <div class="col-md-12 profile-text mb" align="center" style="margin-bottom: 0px;border-top: 1px solid lightgray;">
+            <i class="fa fa-angle-double-up" id="close" onclick="khuljasimsim(0);"></i>
+            <i class="fa fa-angle-double-down" id="open" style="display:none;" onclick="khuljasimsim(1);"></i>
+              </div>
+              
+            </div>
         <!-- /row -->
       </div>
     <?php } ?>
-    <hr>
+   
     <div class="row">
       <div class="col-lg-7">
         <form class="form-inline" role="form" _lpchecked="1">
@@ -580,5 +634,26 @@
     };
     xmlhttp.open("GET", "php/showthiseventfunders.php?id=" + event_id + "&time=" + new Date().getTime(), true);
     xmlhttp.send();
+  }
+  function sendmail() {
+    var event_id = getUrlParam('event_id', '');
+    window.location.href = "php/sendeventemail.php?id=" + event_id + "&time=" + new Date().getTime();
+  }
+  function customail(){
+    var event_id = getUrlParam('event_id', '');
+    window.location.href = "php/sendeventemail.php?id=" + event_id + "&subject=" +$("#subject").val()+"&msg=" +$("#msg").val()+ "&time=" + new Date().getTime();
+
+  }
+  function khuljasimsim(n){
+    if(n==0){
+      $("#open").show();
+      $("#close").hide();
+      $(".khulja").hide();
+    }else{
+      $("#open").hide();
+      $(".khulja").show();
+      $("#close").show();
+    }
+
   }
 </script>

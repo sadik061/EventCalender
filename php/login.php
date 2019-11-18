@@ -3,7 +3,7 @@
 session_start();
 ?>
 <?php include 'database.php';
-$sql = "SELECT * FROM user where email='".$_POST["email"]."' and password='".$_POST["password"]."'";
+$sql = "SELECT * FROM user where email='".strtolower($_POST["email"])."' and password='".$_POST["password"]."'";
 $statement = $connect->prepare($sql);
 $statement->execute();
 $result = $statement->fetchAll();

@@ -42,7 +42,7 @@ if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpe
 if ($uploadOk == 0) {
     echo "Sorry, your file was not uploaded.";
     include 'database.php';
-        $sql = "UPDATE user SET name='" . $_POST["user_name"] . "', email='" . $_POST["email"] . "', password='" . $_POST["password"] . "' WHERE id=" . $_SESSION['userid'];
+        $sql = "UPDATE user SET name='" . $_POST["user_name"] . "', email='" . strtolower($_POST["email"]) . "', password='" . $_POST["password"] . "' WHERE id=" . $_SESSION['userid'];
         $statement = $connect->prepare($sql);
             $statement->execute();
         header("Location: ../settings.php");
@@ -51,7 +51,7 @@ if ($uploadOk == 0) {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
         setcookie("image", date('dmYHis') . round(microtime(true)) .basename($_FILES["fileToUpload"]["name"]), time() + (86400 * 30), "/");
         include 'database.php';
-        $sql = "UPDATE user SET name='" . $_POST["user_name"] . "', email='" . $_POST["email"] . "', password='" . $_POST["password"] . "', image='" . date('dmYHis') . round(microtime(true)) .basename($_FILES["fileToUpload"]["name"]). "' WHERE id=" . $_SESSION['userid'];
+        $sql = "UPDATE user SET name='" . $_POST["user_name"] . "', email='" . strtolower($_POST["email"]) . "', password='" . $_POST["password"] . "', image='" . date('dmYHis') . round(microtime(true)) .basename($_FILES["fileToUpload"]["name"]). "' WHERE id=" . $_SESSION['userid'];
         $statement = $connect->prepare($sql);
             $statement->execute();
         header("Location: ../settings.php");
@@ -59,7 +59,7 @@ if ($uploadOk == 0) {
        
     include 'database.php';
         
-        $sql = "UPDATE user SET name='" . $_POST["user_name"] . "', email='" . $_POST["email"] . "', password='" . $_POST["password"] . "' WHERE id=" . $_SESSION['userid'];
+        $sql = "UPDATE user SET name='" . $_POST["user_name"] . "', email='" . strtolower($_POST["email"]) . "', password='" . $_POST["password"] . "' WHERE id=" . $_SESSION['userid'];
         $statement = $connect->prepare($sql);
             $statement->execute();
             

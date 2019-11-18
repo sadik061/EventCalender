@@ -20,7 +20,7 @@
       navLinks: true, // can click day/week names to navigate views
       defaultView: 'dayGridMonth',
       navLinks: true, // can click day/week names to navigate views
-      editable: true,
+      //editable: true,
       eventLimit: true, // allow "more" link when too many events
       selectable: true,
       selectHelper: true,
@@ -94,6 +94,51 @@
                   success: function() {}
                 })
               }
+              
+            }
+          })
+          }
+
+        });
+        $("#choose").unbind("click").click(function() {
+          var title = $("#title").val();
+          var fund = $("#fund").val();
+          var Description = $("#Des").val();
+          var color = $("#clr").val();
+          var start = $("#start").val();
+          var end = $("#end").val();
+          var organize = $("#organize").val();
+          var venu = $("#venu").val();
+          if( (title ==="") || (fund ==="") || (start ==="") || (end ==="") || (organize ==="") || (venu ==="") || count === 0 ){
+            $("#al").show();
+          }else{
+          $.ajax({
+            url: "php/insert.php",
+            type: "POST",
+            data: {
+              title: title,
+              fund: fund,
+              start: start,
+              end: end,
+              Description: Description,
+              color: color,
+              organize: organize,
+              venu: venu
+            },
+            success: function(data) {
+              calendar.refetchEvents();
+              var fundidArry = Array.from(funderid);
+              for (i = 0; i < funder.size; i++) {
+                $.ajax({
+                  url: "php/insertfund.php",
+                  type: "POST",
+                  data: {
+                    funder_id: fundidArry[i],
+                    event_id: data
+                  },
+                  success: function() {}
+                })
+              }
               window.location.href = 'insertparticipents.php?event_id=' + data;
             }
           })
@@ -124,13 +169,14 @@
 
       eventDrop: function(info) {
         var id = info.event.id;
+        alert(info.event.end.toISOString());
         $.ajax({
           url: "php/update.php",
           type: "POST",
           data: {
             title: info.event.title,
             start: info.event.start.toISOString(),
-            end: info.event.end.toISOString(),
+            end: end,
             id: id
           },
           success: function() {
