@@ -175,22 +175,25 @@ include 'layout/header.php' ?>
     </div>
 
     <form class="form-inline" role="form" _lpchecked="1" style="padding-bottom: 1%;">
-      <div class="col-lg-10" style="padding-left:0px;">
-        <label class="sr-only" for="exampleInputEmail2">Institute Name</label>
-        <input type="text" class="form-control " placeholder="Type Institute name to search" id="sname" oninput="myFunction()" autocomplete="off">
-
+      <div class="col-lg-5" style="padding-left:0px;">
+        <div class="input-group-prepend">
+          <input type="text" style="margin-right: -4px;" class="form-control " placeholder="Type institute name to search" id="sname" oninput="myFunction()" autocomplete="off">
+          <span class="input-group-text"><i class="fa fa-search"></i></span>
+        </div>
       </div>
 
-      <div class="col-lg-2">
-        <button type="button" class="btn btn-theme" data-toggle="modal" data-target="#exampleModal">
-          Add new institution
+      <div class="col-lg-7" style="padding-right:0px;">
+      <button type="button" style="float: right;" class="btn btn-primary" onclick="download()"><i class="fa fa-download"></i></button>
+        <button type="button" style="float:right; margin-right: 1%;" class="btn btn-theme" data-toggle="modal" data-target="#exampleModal">
+          Add New Institution
         </button>
+       
       </div>
 
     </form>
-    <button type="button" style="float: right;" class="btn btn-primary" onclick="download()">Download Result</button>
-
-    <hr>
+    
+    <br>
+    <br>
     <div id="listt">
 
     </div>

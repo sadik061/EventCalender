@@ -383,3 +383,9 @@ a.logo span {
   background-color: lightgray;
   border: gray;
 }
+.white:hover {
+  background-color: white;
+  border: 1px solid lightgray;
+  color: black;
+
+}

@@ -9,14 +9,16 @@ include 'layout/header.php' ?>
             <div class="row">
                 <div class="col-md-12 profile-text ">
                     <div class=" hidden-sm hidden-xs">
+                    <h4 style="color: #797979;">Event Reports</h4>
                         <div class="form-group row">
+                            
                             <div class="col-lg-6">
                                 <small class="text-muted">Event name</small>
                                 <label class="sr-only" for="exampleInputEmail2">Institute Name</label>
                                 <input type="text" class="form-control " placeholder="Type Institute name to search" id="ename" oninput="myFunction()" autocomplete="off">
 
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-6"  style="padding-right: 0px;">
                                 <small class="text-muted">Funded By</small>
                                 <label class="sr-only" for="exampleInputEmail2">Funded By</label>
                                 <span id="fundlist"></span>
@@ -47,18 +49,23 @@ include 'layout/header.php' ?>
                                 </select>
 
                             </div>
-                            <div class="col-lg-3">
+                            <div class="col-lg-2">
                                 <small class="text-muted">Year</small>
                                 <input type="number" class="form-control" id="year" min="2019" max="2099" step="1" value="2019" oninput="myFunction()"/>
 
                             </div>
                             
+                            
+                            <div class="col-lg-1" style="padding-right: 0px;margin-top: 21px;">
+                            <button type="button"  style="float:right" class="btn btn-primary" onclick="download()"><i class="fa fa-download"></i></button>
+
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <button type="button" style="float: right;" class="btn btn-primary" onclick="download()">Download Result</button>
-<hr>
+            <br>
+            <br>
 
            
                 <div id="listt">

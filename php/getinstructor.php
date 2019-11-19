@@ -45,26 +45,27 @@ if ($to > $number_of_results) {
 
 foreach ($result as $row) {
     echo '<div class="message-p pn">
-  <div class="message-header">
-  </div>
   <div class="row">
     
     <div class="col-md-5">
-      <p>
-        Name: <b>' . $row["name"] . '</b>
-      </p>
-      <p>Designation: ' . $row["Designation"] . '</p>
-      <p>Contact: ' . $row["contact"] . '</p>
+      <h4  style="padding-left: 2%;"><b>' . $row["name"] . '</b>
+      </h4>
+      <p>' . $row["Designation"] . '</p>
+      
       
     </div>
     <div class="col-md-5">
       <p>
-        Institute name: ' . $row["namee"] . '
+        Institute name: <b>' . $row["namee"] . ', '. $row["area"].'</b>
       </p>
+      <p>Email: <b>' . $row["email"] . '</b></p>
+      <p>Contact: <b>' . $row["contact"] . '</b></p>
       </div>
-    <div class="col-md-2 centered hidden-sm hidden-xs">
+      <div class="col-md-2">
+      <div class=" pull-right hidden-sm hidden-xs">
     <button class="btn btn-xs" id="edit" onClick="edit(' . $row["instructor_id"] . ',\'' . $row["name"] . '\',\'' . $row["Designation"] . '\',\'' . $row["contact"] . '\',' . $row["institute_id"] . ',\''.$row["namee"].'\',\''.$row["email"].'\')" ><i class="fa fa-pencil "></i></button>
     <button class="btn btn-xs" id="remove" onClick="remove(' . $row["instructor_id"] . ')" ><i class="fa fa-trash-o"></i></button>
+    </div>
     </div>
   </div>
 </div>';

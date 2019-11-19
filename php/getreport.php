@@ -50,23 +50,31 @@ foreach ($result as $row) {
   $resultt = $statementt->fetchAll();
   foreach ($resultt as $roww) {
   echo '<div class="message-p pn">
-<div class="message-header">
-</div>
+
 <div class="row">
   <div class="col-md-5">
-    <p>
-      Name: '.$row["title"].'
-    </p>
-    <p>Participents: '.$roww["numb"].'</p>
+    <h4 style="padding-left:2%;"><b>'.$row["title"].'</b>
+    </h4>
+    <p><i class="fa fa-calendar"></i> '.date('d-m-y', strtotime($row["start_event"])).'</p>
+    
   </div>
   <div class="col-md-4">
-  <p>Venu: '.$row["venu"].'</p>
-  <p>Organized By: '.$row["organized_by"].'</p>
-  </div>
+  <p>Funded By: ';
+      $queryyy = "SELECT * FROM funded_by natural join funder where event_id=" . $row["event_id"];
+$statementtt = $connect->prepare($queryyy);
+$statementtt->execute();
+$resulttt = $statementtt->fetchAll();
+foreach ($resulttt as $rowww) {           
+            echo '<div class="chip" style="    margin-bottom: 0rem;">' . $rowww["name"] . '</div>';
+}
+      echo '</p>
+      </div>
   <div class="col-md-3">
-  <p>Start: '.$row["start_event"].'</p>
-  <p>End: '.$row["end_event"].'</p>
+  <p>Venu: <b>'.$row["venu"].'</b></p>
+    <p>Organized by: <b>'.$row["organized_by"].'</b></p>
+    <p>Participents: <b>'.$roww["numb"].'</b></p>
   </div>
+ 
 </div>';
   echo '</div>
 </div>
