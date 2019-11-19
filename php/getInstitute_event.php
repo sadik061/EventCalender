@@ -39,36 +39,32 @@ if($to > $number_of_results){
 }
 $count =0;
 foreach ($result as $row) {
-    $queryy = "SELECT * FROM instructor where institute_id=".$row["institute_id"]." and Designation='mid_Faculty'";
+    $queryy = "SELECT * FROM instructor where institute_id=".$row["institute_id"]." and Designation='Midwifery Faculty'";
     $statementt = $connect->prepare($queryy);
     $statementt->execute();
-    $queryyy = "SELECT * FROM instructor where institute_id=".$row["institute_id"]." and Designation='SRHR'";
+    $queryyy = "SELECT * FROM instructor where institute_id=".$row["institute_id"]." and Designation='Midwifery Faculty (SRHR)'";
     $statementtt = $connect->prepare($queryyy);
     $statementtt->execute();
-    $query4 = "SELECT * FROM instructor where institute_id=".$row["institute_id"]." and Designation='Principal'";
+    $query4 = "SELECT * FROM instructor where institute_id=".$row["institute_id"]." and Designation='Principal/Incharge'";
     $statement4 = $connect->prepare($query4);
     $statement4->execute();
-    $query5 = "SELECT * FROM instructor where institute_id=".$row["institute_id"]." and Designation='Nursing'";
+    $query5 = "SELECT * FROM instructor where institute_id=".$row["institute_id"]." and Designation='Nursing Faculty'";
     $statement5 = $connect->prepare($query5);
     $statement5->execute();
-    echo '<div class="message-p pn lightgray">
+    echo '<div class="message-p pn white">
  
   <div class="row">
-    <div class="col-md-2 centered hidden-sm hidden-xs">
-      <img src="img/institute.png" class="img-circle" width="65">
-    </div>
+    
     <div class="col-md-5">
-      <p>
-        name:'.$row["namee"].'
-      </p>
-      <p>Area:'.$row["area"].'</p>
-      <p class="message">Address:'.$row["address"].'</p>
+      <h6><b>'.$row["namee"].'
+      </b></h6>
+      <p style="margin-left: 0px;">'.$row["area"].'</p>
     </div>
     <div class="col-md-4">
-      <p >Midwifery Faculty : '.$statementt->rowCount().'</p>
-      <p >Midwifery Faculty (SRHR) : '.$statementtt->rowCount().'</p>
-      <p >Principal/Incharge : '.$statement4->rowCount().'</p>
-      <p >Nursing Faculty : '.$statement5->rowCount().'</p>
+      <p >Midwifery Faculty <b>(<i>'.$statementt->rowCount().'</i>)</b></p>
+      <p >Midwifery Faculty (SRHR) <b>(<i>'.$statementtt->rowCount().'</i>)</b></p>
+      <p >Principal/Incharge <b>(<i>'.$statement4->rowCount().'</i>)</b></p>
+      <p >Nursing Faculty <b>(<i>'.$statement5->rowCount().'</i>)</b></p>
     </div>
     <div class="col-md-1">
     <button id="down'.$count.'" type="button" class="btn btn-secondary" id="remove" onclick="showdropdown('.$count.')"><span class="fa fa-angle-down"></span></button>
@@ -78,7 +74,7 @@ foreach ($result as $row) {
   </div>
   <div  style="display:none;" class="row instructorlist" id="details'.$count.'">
 
-    <div class="col-md-12"><p style="color: #5aa25a">Midwifery Faculty </p>';
+    <div class="col-md-12">';
     $count +=1;
     $statementt->execute();
     $resultt = $statementt->fetchAll();
@@ -88,15 +84,15 @@ foreach ($result as $row) {
         $statementt_ins->execute();
         $resultt_ins = $statementt_ins->fetchAll();
         foreach ($resultt_ins as $roww_ins) {
-          echo  '<div class="particepents_red"><div class="col-md-7">'.$roww["name"].
+          echo  '<div class="particepents_red"><div class="col-md-4">'.$roww["name"].
           '</div>
-          <div class="col-md-3"><div class="tooltip">Assign
-          <span class="tooltiptext"><button type="button" class="btn btn-secondary tbutton" style="margin-bottom: 2%;" onClick="assignResource('.$roww["instructor_id"].',\''.$roww["name"].'\')" >Add as a Resource Persion</button><br>
+          <div class="col-md-4">(Midwifery Faculty)</div>
+          <div class="col-md-2">
+          <i class="fa fa-calendar" onClick="showCalender('.$roww["instructor_id"].')"></i> ('.$roww_ins["coun"].')</div>
+          <div class="col-md-2"><div class="tooltip"><button style="border: 1px solid lightgray;">Assign</button><span class="tooltiptext">
+          <button type="button" class="btn btn-secondary tbutton" style="margin-bottom: 2%;" onClick="assignResource('.$roww["instructor_id"].',\''.$roww["name"].'\')" >Add as a Resource Persion</button><br>
           <button type="button"  class="btn btn-secondary tbutton" onClick="assign('.$roww["instructor_id"].',\''.$roww["name"].'\')">Add as a participant</button></span></div>
-          </div><div class="col-md-1">
-          <i class="fa fa-calendar" onClick="showCalender('.$roww["instructor_id"].')"></i></div>
-          <div class="col-md-1">
-          '.$roww_ins["coun"].'</div></div>';
+          </div></div>';
         }
         }
     echo '</div><div class="col-md-12"><p style="color: #5aa25a">Midwifery Faculty (SRHR)</p>';

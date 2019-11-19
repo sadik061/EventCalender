@@ -77,7 +77,7 @@
       ?>
 
       <div class="col-lg-12" style="border: 1px solid lightgray;padding-top: 0%;">
-        <h3 style="text-align:center; border-bottom: 1px solid lightgray;margin-bottom: 9px;
+        <h3 style="text-align:center;
 ">Event Details</h3>
         <div class="row khulja">
           <div class="col-md-4 profile-text ">
@@ -160,19 +160,21 @@
         <div class="row khulja" >
             <div class="col-md-12 profile-text mb" style="margin-bottom: 8px;">
                 <button type="button" class="btn btn-primary" style="float:right;" data-dismiss="modal" id="update">Update</button>
-                <button type="button" class="btn btn-primary" onclick="sendmail();" id="email"><i class="fa fa-envelope"></i> Confirmation email </button>
-                <button type="button" class="btn btn-primary" onclick="$('#custommail').modal();" id="email"><i class="fa fa-envelope"></i> Custom email </button>
+                <button type="button" class="btn btn-primary" onclick="$('#custommail').modal();" id="email"><i class="fa fa-envelope"></i></button>
+                <button type="button" class="btn btn-primary" onclick="sendmail();" id="email"><i class="fa fa-check"></i> Confirm </button>
+                
               
               </div>
+              
+            </div>
+            
               
             </div>
             <div class="row">
-            <div class="col-md-12 profile-text mb" align="center" style="margin-bottom: 0px;border-top: 1px solid lightgray;">
-            <i class="fa fa-angle-double-up" id="close" onclick="khuljasimsim(0);"></i>
-            <i class="fa fa-angle-double-down" id="open" style="display:none;" onclick="khuljasimsim(1);"></i>
+            <div class="col-md-12 profile-text mb" align="center" style="margin-bottom: 0px;">
+            <i class="fa fa-angle-double-up"  style="    font-size: 31px;color: #0D7EFF;background:white;" id="close" onclick="khuljasimsim(0);"></i>
+            <i class="fa fa-angle-double-down" id="open" style="display:none;font-size: 31px;color: #0D7EFF;background:white;" onclick="khuljasimsim(1);"></i>
               </div>
-              
-            </div>
         <!-- /row -->
       </div>
     <?php } ?>
