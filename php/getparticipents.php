@@ -19,10 +19,11 @@ echo '<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-
 foreach ($result as $row) {
 echo  '<div class="particepents_red">
 <div class="col-md-6">'.$row["name"].'</div>
-<div class="col-md-6">'.$row["namee"].'</div>
+<div class="col-md-5">'.$row["namee"].'</div>
 <div >
+<div class="col-md-1">
 <i class="fa fa-times" onClick="remove('.$row["instructor_id"].',\''.$row["name"].'\')"></i></div>
-        </div>';
+        </div></div>';
    
 }
 echo '</div>';
@@ -50,19 +51,21 @@ echo '<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledb
 foreach ($resultt as $row) {
     echo  '<div class="particepents_red">
     <div class="col-md-6">'.$row["namee"].'</div>
-    <div class="col-md-6">'.$row["organization"].'</div>
+    <div class="col-md-5">'.$row["organization"].'</div>
     <div>
+    <div class="col-md-1">
     <i class="fa fa-times" onClick="removeResource('.$row["id"].',\''.$row["namee"].'\')"></i>
-    </div></div>';
+    </div></div></div>';
        
     }
 foreach ($result as $row) {
   echo  '<div class="particepents_red">
   <div class="col-md-6">'.$row["name"].'</div>
-  <div class="col-md-6">'.$row["namee"].'</div>
+  <div class="col-md-5">'.$row["namee"].'</div>
   <div>
+  <div class="col-md-1">
   <i class="fa fa-times" onClick="remove('.$row["instructor_id"].',\''.$row["name"].'\')"></i></div>
-  </div>';   
+  </div></div>';   
 }
 echo '</div>';
 ?>
