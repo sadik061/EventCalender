@@ -228,9 +228,7 @@ ul.sidebar-menu li a.active, ul.sidebar-menu li a:hover, ul.sidebar-menu li a:fo
   border-radius: 16px;
   transition: all .3s linear;
 }
-.fa-times{
-  margin-left: 13px;
-}
+
 .fa-long-arrow-left{
   font-size: xx-large;
   color: #0D7EFF;
@@ -262,13 +260,14 @@ ul.sidebar-menu li a.active, ul.sidebar-menu li a:hover, ul.sidebar-menu li a:fo
 }
 .particepents_red{
   border: 1px solid #dfd4d4;
-  background-color: white;
+  background-color: #f6f6f6;
   color:black;
   border-radius: 8px;
   padding: 0px 0px;
   display: flex;
   padding-right: 41px;
   margin-bottom: 3px;
+  padding-right: 0px;
 }
 .particepents_red:hover{
   background-color: #007bff;
@@ -388,4 +387,36 @@ a.logo span {
   border: 1px solid lightgray;
   color: black;
 
+}
+.message-p > div > div > div > .fa-calendar{
+  cursor: pointer;
+}
+.assignbutton{
+  background: #f6f6f6;
+  border: 1px solid black ;
+  margin:7%;
+  padding: 4px 13%;
+  border-radius: 8%;
+  font-weight: 500;
+}
+.particepents_red:hover> div > div > .assignbutton{
+  background: #0D7EFF;
+  color: white;
+  border-color: white;
+}
+.dropdownbutton{
+  color: #0D7EFF;
+  border: 0px;
+  background: white;
+  font-size: 23px;
+  display: flex;
+}
+.tab-pane > .particepents_red{
+  padding: 1.5% 0%;
+}
+.col-md-2> .fa-calendar{
+  cursor: pointer;
+}
+.chip > .fa-times{
+  padding-left: 10px;
 }

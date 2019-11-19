@@ -4,6 +4,37 @@
 <section id="main-content">
   <section class="wrapper">
     <!-- Modal -->
+    <div class="modal fade" id="fundata" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+      <div class="modal-dialog" role="document" style="    max-width: 70%;">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Add New Funder In The Database</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="row">
+                <div class="col-md-6" id="allfunderlist">
+
+
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">New Funder name:</label>
+                    <input type="text" class="form-control" id="newfunder">
+                  </div>
+                  <button type="button" class="btn btn-primary" onclick="uploadfunder();">Add funder to database</button>
+                </div>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="modal fade" id="modalcalender" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -148,6 +179,20 @@
                       <input type="date" class="form-control fcc" id="end" value="<?php echo date('Y-m-d', strtotime($row["end_event"])); ?>">
                     </div>
                   </div>
+                  <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Color</label>
+                    <div class="col-sm-10">
+                    <select class="form-control" id="clr">
+                      <option value="orange" <?=$row['color'] == 'orange' ? ' selected="selected"' : '';?>style="color: orange">Orange</option>
+                      <option value="#007bff80"  <?=$row['color'] == '#007bff80' ? ' selected="selected"' : '';?> style="color: #007bff80">Blue</option>
+                      <option value="#dc3545b5"  <?=$row['color'] == '#dc3545b5' ? ' selected="selected"' : '';?>style="color: #dc3545b5">Red</option>
+                      <option value="#e731e7"  <?=$row['color'] == '#e731e7' ? ' selected="selected"' : '';?>style="color: #e731e7">Purple</option>
+                      <option value="yellow"  <?=$row['color'] == 'yellow' ? ' selected="selected"' : '';?>style="color: yellow">Yellow</option>
+                      <option value="#00ff00"  <?=$row['color'] == '#00ff00' ? ' selected="selected"' : '';?>style="color: #00ff00">Green</option>
+                      <option value="#b4b4b4"  <?=$row['color'] == '#b4b4b4' ? ' selected="selected"' : '';?>style="color: #b4b4b4">Gray</option>
+                    </select>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -180,7 +225,9 @@
     <?php } ?>
    
     <div class="row">
+    
       <div class="col-lg-7">
+      <h4>Select Participants</h4>
         <form class="form-inline" role="form" _lpchecked="1">
           <div class="col-lg-8" style="padding-left:0px;">
             <label class="sr-only" for="exampleInputEmail2">Institute Name</label>
@@ -206,6 +253,7 @@
           <br>
           <br>
         </form>
+        
         <span id="listt"></span>
 
       </div>
@@ -276,6 +324,7 @@
     var end = $("#end").val();
     var organize = $("#organize").val();
     var venu = $("#venu").val();
+    var color = $("#clr").val();
     if ((title === "") || (fund === "") || (start === "") || (end === "") || (organize === "") || (venu === "") || count === 0) {
       $("#al").show();
     } else {
@@ -290,7 +339,8 @@
           end: end,
           Description: Description,
           organize: organize,
-          venu: venu
+          venu: venu,
+          color: color
         },
         success: function() {
           var fundidArry = Array.from(funderid);
@@ -557,12 +607,7 @@
   }
 
   function showaddfund() {
-    $("#fundtitle").show();
-    $("#ModalTile").hide();
-    $("#maincontent").hide();
-    $("#save").hide();
-    $("#back").show();
-    $("#addfunderpanel").show();
+    $("#fundata").modal();
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
@@ -658,4 +703,5 @@
     }
 
   }
+ 
 </script>

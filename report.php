@@ -39,7 +39,7 @@ include 'layout/header.php' ?>
                             </div>
 
                             <div class="col-lg-3">
-                                <small class="text-muted">Quadrant</small>
+                                <small class="text-muted">Quarter</small>
                                 <select id="month" class="form-control " autocomplete="off" oninput="myFunction()">
                                     <option value="">Select a Quarter</option>
                                     <option value="01">Jan - March</option>
