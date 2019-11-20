@@ -12,7 +12,7 @@ include 'layout/header.php'; ?>
                     <?php if ($_SESSION["role"] == 1) { ?>
                         <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Add new user</a>
                     <?php } ?>
-                    <a class="nav-link" id="v-pills-user-tab" data-toggle="pill" href="#v-pills-user" role="tab" aria-controls="v-pills-user" aria-selected="false">Add new user</a>
+                    <a class="nav-link" id="v-pills-user-tab" data-toggle="pill" href="#v-pills-user" role="tab" aria-controls="v-pills-user" aria-selected="false">User Manual</a>
 
 
                 </div>
@@ -38,16 +38,16 @@ include 'layout/header.php'; ?>
                                         </div>
                                     </div>
                                     <div class="col-md-7">
-                                        
 
-                                    
+
+
                                         <div class="form-group">
-                                                <label class="col-sm-2 col-sm-2 col-form-label">Name</label>
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control fcc" name="user_name" value="<?php echo $row["name"] ?>">
-                                                </div>
+                                            <label class="col-sm-2 col-sm-2 col-form-label">Name</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control fcc" name="user_name" value="<?php echo $row["name"] ?>">
+                                            </div>
                                         </div>
-                                        
+
                                         <div class="form-group">
                                             <label class="col-sm-2 col-sm-2 col-form-label">Email</label>
                                             <div class="col-sm-10">
@@ -132,72 +132,19 @@ include 'layout/header.php'; ?>
                         </div>
                     <?php } ?>
                     <div class="tab-pane fade" id="v-pills-user" role="tabpanel" aria-labelledby="v-pills-user-tab">
-                        <h4>Add New User</h4>
-                        <br>
-                        <form class="form-horizontal style-form" action="php/adduser.php" method="post" enctype="multipart/form-data">
-                            <div class="row ">
+                        <style>
+                            .card {
+                                height: auto;
+                            }
+                        </style>
+                        <?php include 'usermanual.php' ?>
 
-                                <div class="col-md-12">
-                                    <div class="form-group row">
-                                        <label class="col-sm-2 col-sm-2 col-form-label">Name</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control fcc" name="auser_name">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-sm-2 col-sm-2 col-form-label">Email</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control" name="aemail">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-sm-2 col-sm-2 control-label">Password</label>
-                                        <div class="col-sm-10">
-                                            <input type="password" class="form-control" name="apassword">
-                                        </div>
-                                    </div>
-
-                                    <button type="submit" class="btn btn-theme">Add</button>
-                                </div>
-                            </div>
-                            <!-- #region -->
-                        </form>
-                        <hr>
-                        <table class="table table-striped table-advance table-hover">
-                            <thead>
-                                <tr>
-                                    <th style="width: 40%"> Name</th>
-                                    <th style="width: 40%"> Email</th>
-                                    <th> Remove</th>
-
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php include 'php/database.php';
-                                $query = "SELECT * FROM user";
-                                $statement = $connect->prepare($query);
-                                $statement->execute();
-                                $result = $statement->fetchAll();
-                                foreach ($result as $row) { ?>
-                                    <tr>
-                                        <td><?php echo $row["name"] ?></td>
-                                        <td><?php echo $row["email"] ?></td>
-                                        <td><a href="php/removeuser.php?id=<?php echo $row["id"] ?>" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></a></td>
-                                    </tr>
-                                <?php } ?>
-                            </tbody>
-                        </table>
-
+                        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+                        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
                     </div>
                 </div>
             </div>
-
-
-
-
-
-
 
     </section>
     <!-- /wrapper -->
