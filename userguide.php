@@ -33,7 +33,7 @@
           <h2>Calendar</h2>
           <p class="lead">This is the <b>Dashboard</b> of the Application. Here we have included every steps of creating events, customizing, shifting and multiple views of event on calendar views.</p>
           <p><i>Please expend the accordions by clicking on the topics</i></p>
-          <div class="container">
+          <div class="col-12">
             <div id="accordion">
               <div class="card">
                 <div class="card-header" id="headingOne">
