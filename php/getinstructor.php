@@ -78,9 +78,31 @@ echo '<div class="row-fluid">
 <div class="span6">
   <div class="dataTables_paginate paging_bootstrap pagination">
     <ul>';
-for ($page = 1; $page <= $number_of_pages; $page++) {
-    echo '<li><a href="instructor.php?page=' . $page . '&search=' . $id . '">' . $page . '</a></li>';
+$pagenumber =$page;
+$count=0;
+if($pagenumber>1){
+  echo '<li><a href="instructor.php?page=' . ($pagenumber-1) . '&search=' . $id . '">Previous</a></li>';
+  echo '<li><a href="instructor.php?page=' . 1 . '&search=' . $id . '">' . 1 . '</a></li>';
+  echo '<li><a >' . "..." . '</a></li>';
 }
+for ($page; $page <= $number_of_pages; $page++) {
+  if($count > 3){
+  break;
+  }
+  if($pagenumber==$page){
+  echo '<li><a style="background-color:#0D7EFF;color:white;" href="instructor.php?page=' . $page . '&search=' . $id . '">' . $page . '</a></li>';
+}else{
+  echo '<li><a disabled href="instructor.php?page=' . $page . '&search=' . $id . '">' . $page . '</a></li>';
+}
+  $count++;
+}
+if($pagenumber<($number_of_pages-3)){
+  echo '<li><a class="disabled" style=" cursor: not-allowed;opacity: 0.5;">' . "..." . '</a></li>';
+  echo '<li><a href="instructor.php?page=' . $number_of_pages . '&search=' . $id . '">' . $number_of_pages . '</a></li>';
+  }
+  if($pagenumber<$number_of_pages){
+    echo '<li><a href="instructor.php?page=' . ($pagenumber+1) . '&search=' . $id . '">Next</a></li>';
+  }
 echo '</ul>
   </div>
 </div>
