@@ -12,7 +12,9 @@ include 'layout/header.php'; ?>
                     <?php if ($_SESSION["role"] == 1) { ?>
                         <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Add new user</a>
                     <?php } ?>
+
                     <a class="nav-link" id="v-pills-user-tab" data-toggle="pill" href="#v-pills-user" role="tab" aria-controls="v-pills-user" aria-selected="false">User Manual</a>
+
 
 
                 </div>
@@ -131,6 +133,7 @@ include 'layout/header.php'; ?>
 
                         </div>
                     <?php } ?>
+
                     <div class="tab-pane fade" id="v-pills-user" role="tabpanel" aria-labelledby="v-pills-user-tab">
                         <style>
                             .card {
@@ -139,11 +142,11 @@ include 'layout/header.php'; ?>
                         </style>
                         <?php include 'usermanual.php' ?>
 
+
                         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
                         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-                    </div>
-                </div>
+                
             </div>
 
     </section>
