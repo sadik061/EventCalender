@@ -437,3 +437,11 @@ a.logo span {
 .tooltip:hover .tooltiptext {
   margin-left: -5px;
 }
+.form-control::placeholder {
+  color: #bdc4ca;
+  opacity: 1;
+}
+.scrollspy-example2 {
+  overflow-y: auto;
+  height: 650px;
+}

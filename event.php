@@ -32,7 +32,7 @@ include 'layout/header.php'; ?>
                     <input type="text" class="form-control" id="organize">
                   </div>
                   <div class="form-group">
-                    <label for="recipient-name" class="col-form-label">Venu*</label>
+                    <label for="recipient-name" class="col-form-label">Venue*</label>
                     <input type="text" class="form-control" id="venu">
                   </div>
                   <div class="form-group">
@@ -56,7 +56,7 @@ include 'layout/header.php'; ?>
                     <input type="date" class="form-control" id="end">
                   </div>
                   <div class="form-group">
-                    <label for="recipient-name" class="col-form-label">Color:</label>
+                    <label for="recipient-name" class="col-form-label">Color</label>
                     <select class="form-control" id="clr">
                       <option value="orange" style="color: orange">Orange</option>
                       <option value="#007bff80" style="color: #007bff80">Blue</option>
@@ -68,7 +68,7 @@ include 'layout/header.php'; ?>
                     </select>
                   </div>
                   <div class="form-group">
-                    <label for="recipient-name" class="col-form-label">Note:</label>
+                    <label for="recipient-name" class="col-form-label">Note</label>
                     <input type="text" class="form-control" id="Des">
                   </div>
                 </div>

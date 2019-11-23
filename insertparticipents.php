@@ -123,7 +123,7 @@
                 </div>
               </div>
               <div class="form-group row">
-                <label for="inputPassword" class="col-sm-2 col-form-label">Venu*</label>
+                <label for="inputPassword" class="col-sm-2 col-form-label">Venue*</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control fcc" id="venu" value="<?php echo $row["venu"] ?>">
                 </div>
@@ -238,7 +238,7 @@
             <label class="sr-only" for="exampleInputEmail2">Area</label>
 
             <select id="sarea" class="form-control " autocomplete="off" oninput="myFunction()">
-              <option value="">Select a area</option>
+              <option value="">Select an area</option>
 
               <option value="Dhaka">Dhaka</option>
               <option value="Barishal ">Barishal</option>

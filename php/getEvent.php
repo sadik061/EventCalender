@@ -56,7 +56,7 @@ foreach ($resultt as $roww) {
       
     </div>
     <div class="col-md-3">
-    <p>Venu: <b>'.$row["venu"].'</b></p>
+    <p>Venue: <b>'.$row["venu"].'</b></p>
     <p>Organized by: <b>'.$row["organized_by"].'</b></p>
     </div>
     <div class="col-md-2">

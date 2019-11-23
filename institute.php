@@ -31,7 +31,7 @@ include 'layout/header.php' ?>
 
               <div class="col-sm-10">
                 <select id="area" class="form-control" autocomplete="off">
-                  <option value="">Select a area</option>
+                  <option value="">Select an area</option>
                   <option value="Dhaka">Dhaka</option>
                   <option value="Barishal ">Barishal</option>
                   <option value="Chittagong ">Chittagong</option>

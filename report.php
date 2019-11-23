@@ -32,7 +32,7 @@ include 'layout/header.php' ?>
 
                             </div>
                             <div class="col-lg-3">
-                                <small class="text-muted">Venu name</small>
+                                <small class="text-muted">Venue name</small>
                                 <label class="sr-only" for="exampleInputEmail2">Institute Name</label>
                                 <input type="text" class="form-control " placeholder="Type venu name to search" id="vname" oninput="myFunction()" autocomplete="off">
 

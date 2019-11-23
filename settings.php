@@ -57,8 +57,8 @@ include 'layout/header.php'; ?>
 
                 </div>
             </div>
-            <div class="col-9">
-                <div class="tab-content" id="v-pills-tabContent">
+            <div class="col-9 ">
+                <div class="tab-content scrollspy-example2" id="v-pills-tabContent">
                     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                         <h4>User Profile</h4>
                         <?php include 'php/database.php';
@@ -177,7 +177,7 @@ include 'layout/header.php'; ?>
                         </div>
                     <?php } ?>
 
-                    <div class="tab-pane fade" id="v-pills-user" role="tabpanel" aria-labelledby="v-pills-user-tab">
+                    <div class="tab-pane fade " id="v-pills-user" role="tabpanel" aria-labelledby="v-pills-user-tab">
                         <style>
                             .card {
                                 height: auto;
