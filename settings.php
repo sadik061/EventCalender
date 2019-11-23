@@ -4,6 +4,44 @@ include 'layout/header.php'; ?>
 
 <section id="main-content">
     <section class="wrapper">
+        <div class="modal fade" id="Confirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document" style="max-width: 400px;">
+                <div class="modal-content" style="width: 400px;">
+
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                            </div>
+                            <div class="col-md-4">
+                                <img src="img/warning-gif.gif" style="width: 97px;">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-12">
+                                <h3 style="text-align: center;margin:5% 0%;">Are you sure?</h3>
+                                <p style="text-align: center;margin:5% 0%;">Do you really want to delete these records? This process can not be undone</p>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                            </div>
+                            <div class="col-md-6" style="text-align: center;margin:5% 0%;">
+                                <button type="button" class="btn btn-primary red" data-dismiss="modal" id="yes">Delete</button>
+                                <button type="button" class="btn btn-primary gray" data-dismiss="modal" id="no">Cancel</button>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
         <!-- Modal -->
         <div class="row">
             <div class="col-3">
@@ -123,7 +161,12 @@ include 'layout/header.php'; ?>
                                         <tr>
                                             <td><?php echo $row["name"] ?></td>
                                             <td><?php echo $row["email"] ?></td>
-                                            <td><a href="php/removeuser.php?id=<?php echo $row["id"] ?>" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></a></td>
+
+                                            <td><a href="#" onClick="removee(<?php echo $row['id'] ?>)" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></a>
+                                            </td>
+
+                                            <!--<td><a href="php/removeuser.php?id=<?php echo $row["id"] ?>" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></a></td>
+                                        -->
                                         </tr>
                                     <?php } ?>
                                 </tbody>
@@ -146,8 +189,8 @@ include 'layout/header.php'; ?>
                         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
                         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-                
-            </div>
+
+                    </div>
 
     </section>
     <!-- /wrapper -->
@@ -158,4 +201,11 @@ include 'layout/header.php'; ?>
     $(document).ready(function() {
         showInstitutes($("#ename").val(), $("#fname").val(), $("#oname").val(), $("#vname").val(), $("#month").val(), $("#year").val());
     })
+
+    function removee(id) {
+        $('#Confirm').modal();
+        $("#yes").unbind("click").click(function() {
+            window.location.href = 'php/removeuser.php?id=' + id;
+        })
+    }
 </script>
