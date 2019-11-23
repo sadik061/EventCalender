@@ -308,6 +308,7 @@
     $("#ModalTile").hide();
     $("#maincontent").hide();
     $("#save").hide();
+    $("#choose").hide();
     $("#back").show();
     $("#addfunderpanel").show();
     var xmlhttp = new XMLHttpRequest();
@@ -325,6 +326,7 @@
     $("#ModalTile").show();
     $("#maincontent").show();
     $("#save").show();
+    $("#choose").show();
     $("#back").hide();
     $("#addfunderpanel").hide();
     $("#fundtitle").hide();

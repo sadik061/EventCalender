@@ -7,7 +7,7 @@ header('Content-Disposition: attachment; filename=data.csv');
 $output = fopen('php://output', 'w');
 
 // output the column headings
-fputcsv($output, array('Event', 'Funded By', 'Organized By','Venu', 'Description', 'Start','End', 'Participents'));
+fputcsv($output, array('Event', 'Funded By', 'Organized By','Venu', 'Description', 'Start','End', 'Participants'));
 // fetch the data
 $ename = "";
 $fname= "";

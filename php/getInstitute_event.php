@@ -164,18 +164,7 @@ foreach ($result as $row) {
     </div>
  </div>';
 }
-echo '<div class="row-fluid">
-<div class="span6">
-  <div class="dataTables_info" id="hidden-table-info_info">Showing '.$from.' to '.$to .' of '.$number_of_results.' entries</div>
-</div>
-<div class="span6">
-  <div class="dataTables_paginate paging_bootstrap pagination">
-    <ul>';
-for ($page=1;$page<=$number_of_pages;$page++) {
-    echo '<li><a href="institute.php?page=' . $page . '&search='.$id.'">' . $page . '</a></li>';
-}      
-echo '</ul>
-  </div>
-</div>
-</div>';
+
+
+
 ?>

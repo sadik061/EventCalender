@@ -67,16 +67,17 @@ foreach ($resultt as $roww) {
     <!-- /col-md-4 -->
   </div>
   <p id="hidedetails" onclick="showdetails(1);" style="color:  #0D7EFF">Show more details</p>
-  <p  class="details" onclick="showdetails(0);" style="color:  #0D7EFF;float: right;display:none">Hide details</p>
+  <p  class="details" onclick="showdetails(0);" style="color:  #0D7EFF;float: right;display:none;margin-bottom: 0rem;">Hide details</p>
   <div class="details" style="display:none;">';
-  $query = "SELECT * FROM instructor natural join participents where event_id=" . $id." and present=1";
+  $query = "SELECT *  FROM instructor natural join participents inner join institute on instructor.institute_id=institute.institute_id where event_id=" . $id." and present=1";
   $statement = $connect->prepare($query);
   $statement->execute();
   $result = $statement->fetchAll();
   echo "<h5>List of Resource Person</h5>";
   foreach ($result as $row) {
-          echo  '<div  style="border: 1px solid #dfd4d4;border-radius: 8px;padding: 0px 0px;padding-left: 10px;" >
-              '.$row["name"].'
+          echo  '<div class="particepents_red">
+          <div class="col-md-6">'.$row["name"].'</div>
+          <div class="col-md-5">'.$row["namee"].'</div>
           </div>';
   }
   $query = "SELECT * FROM resource_person where event_id=" . $id;
@@ -84,19 +85,20 @@ foreach ($resultt as $roww) {
   $statement->execute();
   $result = $statement->fetchAll();
   foreach ($result as $row) {
-    echo  '<div  style="border: 1px solid #dfd4d4;border-radius: 8px;padding: 0px 0px;padding-left: 10px;" >
+    echo  '<div  class="particepents_red">
         '.$row["namee"].'
     </div>';
 }
 
-  $query = "SELECT * FROM instructor natural join participents where event_id=" . $id." and present=0";
+  $query = "SELECT *  FROM instructor natural join participents inner join institute on instructor.institute_id=institute.institute_id where event_id=" . $id." and present=0";
   $statement = $connect->prepare($query);
   $statement->execute();
   $result = $statement->fetchAll();
-  echo "<h5>List of Participents</h5>";
+  echo "<h5>List of Participants</h5>";
   foreach ($result as $row) {
-          echo  '<div  style="border: 1px solid #dfd4d4;border-radius: 8px;padding: 0px 0px;padding-left: 10px;" >
-              '.$row["name"].'
+          echo  '<div class="particepents_red">
+          <div class="col-md-6">'.$row["name"].'</div>
+          <div class="col-md-5">'.$row["namee"].'</div>
           </div>';
   }
   echo '</div>';

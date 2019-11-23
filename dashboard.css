@@ -414,6 +414,9 @@ a.logo span {
 .tab-pane > .particepents_red{
   padding: 1.5% 0%;
 }
+.details > .particepents_red{
+  padding: 1.5% 0%;
+}
 .col-md-2> .fa-calendar{
   cursor: pointer;
 }
@@ -430,4 +433,7 @@ a.logo span {
     color: #fff;
     background-color: #007bff;
     border-color: #007bff;
+}
+.tooltip:hover .tooltiptext {
+  margin-left: -5px;
 }

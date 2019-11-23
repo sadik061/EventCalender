@@ -72,7 +72,7 @@ foreach ($resulttt as $rowww) {
   <div class="col-md-3">
   <p>Venu: <b>'.$row["venu"].'</b></p>
     <p>Organized by: <b>'.$row["organized_by"].'</b></p>
-    <p>Participents: <b>'.$roww["numb"].'</b></p>
+    <p>Participants: <b>'.$roww["numb"].'</b></p>
   </div>
  
 </div>';

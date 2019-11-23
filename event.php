@@ -95,7 +95,7 @@ include 'layout/header.php'; ?>
           </div>
 
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary" id="save">Choose participents</button>
+            <button type="button" class="btn btn-primary" id="save">Choose participants</button>
             <button style="display:none;" type="button" class="btn" onclick="hideaddfund();" id="back"><i class="fa fa-long-arrow-left"></i></button>
           </div>
         </div>
@@ -500,6 +500,7 @@ include 'layout/header.php'; ?>
       $("#ModalTile").hide();
       $("#maincontent").hide();
       $("#save").hide();
+      $("#choose").hide();
       $("#back").show();
       $("#addfunderpanel").show();
       var xmlhttp = new XMLHttpRequest();
